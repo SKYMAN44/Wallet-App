@@ -10,7 +10,6 @@
 		636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA427CA9B4B008950F7 /* AppDelegate.swift */; };
 		636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */; };
 		636C7CA927CA9B4B008950F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA827CA9B4B008950F7 /* ViewController.swift */; };
-		636C7CAC27CA9B4B008950F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAA27CA9B4B008950F7 /* Main.storyboard */; };
 		636C7CAE27CA9B4F008950F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAD27CA9B4F008950F7 /* Assets.xcassets */; };
 		636C7CB127CA9B4F008950F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */; };
 		636C7CBC27CA9B4F008950F7 /* Wallet_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CBB27CA9B4F008950F7 /* Wallet_AppTests.swift */; };
@@ -40,7 +39,6 @@
 		636C7CA427CA9B4B008950F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		636C7CA827CA9B4B008950F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		636C7CAB27CA9B4B008950F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		636C7CAD27CA9B4F008950F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636C7CB027CA9B4F008950F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636C7CB227CA9B4F008950F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				636C7CA427CA9B4B008950F7 /* AppDelegate.swift */,
 				636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */,
 				636C7CA827CA9B4B008950F7 /* ViewController.swift */,
-				636C7CAA27CA9B4B008950F7 /* Main.storyboard */,
 				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
 				636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */,
 				636C7CB227CA9B4F008950F7 /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				636C7CB127CA9B4F008950F7 /* LaunchScreen.storyboard in Resources */,
 				636C7CAE27CA9B4F008950F7 /* Assets.xcassets in Resources */,
-				636C7CAC27CA9B4B008950F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		636C7CAA27CA9B4B008950F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				636C7CAB27CA9B4B008950F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,7 +432,6 @@
 				INFOPLIST_FILE = "Wallet-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,7 +459,6 @@
 				INFOPLIST_FILE = "Wallet-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
