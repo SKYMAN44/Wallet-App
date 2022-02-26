@@ -9,12 +9,25 @@
 /* Begin PBXBuildFile section */
 		636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA427CA9B4B008950F7 /* AppDelegate.swift */; };
 		636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */; };
-		636C7CA927CA9B4B008950F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA827CA9B4B008950F7 /* ViewController.swift */; };
 		636C7CAE27CA9B4F008950F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAD27CA9B4F008950F7 /* Assets.xcassets */; };
 		636C7CB127CA9B4F008950F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */; };
 		636C7CBC27CA9B4F008950F7 /* Wallet_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CBB27CA9B4F008950F7 /* Wallet_AppTests.swift */; };
 		636C7CC627CA9B4F008950F7 /* Wallet_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CC527CA9B4F008950F7 /* Wallet_AppUITests.swift */; };
 		636C7CC827CA9B4F008950F7 /* Wallet_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CC727CA9B4F008950F7 /* Wallet_AppUITestsLaunchTests.swift */; };
+		636C7CD927CAC78B008950F7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CD827CAC78B008950F7 /* HomeViewController.swift */; };
+		636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */; };
+		636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CDD27CACF40008950F7 /* HistoryViewController.swift */; };
+		636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CE127CAD0BA008950F7 /* View+Pin.swift */; };
+		636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CE327CAD4C9008950F7 /* Cards.swift */; };
+		636C7CE627CAD4D2008950F7 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CE527CAD4D2008950F7 /* Contacts.swift */; };
+		636C7CE827CAD4E4008950F7 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CE727CAD4E4008950F7 /* History.swift */; };
+		636C7CEA27CAD560008950F7 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CE927CAD560008950F7 /* HomeRouter.swift */; };
+		636C7CEC27CAD7B8008950F7 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CEB27CAD7B8008950F7 /* HomeInteractor.swift */; };
+		636C7CEE27CADD56008950F7 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CED27CADD56008950F7 /* HomePresenter.swift */; };
+		636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CEF27CADEB0008950F7 /* HomeWorker.swift */; };
+		636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF127CADEF8008950F7 /* HomeModels.swift */; };
+		636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */; };
+		636C7CF727CAE312008950F7 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF627CAE312008950F7 /* DBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +51,6 @@
 		636C7CA127CA9B4B008950F7 /* Wallet-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallet-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636C7CA427CA9B4B008950F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		636C7CA827CA9B4B008950F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		636C7CAD27CA9B4F008950F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636C7CB027CA9B4F008950F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636C7CB227CA9B4F008950F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +59,21 @@
 		636C7CC127CA9B4F008950F7 /* Wallet-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallet-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636C7CC527CA9B4F008950F7 /* Wallet_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet_AppUITests.swift; sourceTree = "<group>"; };
 		636C7CC727CA9B4F008950F7 /* Wallet_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		636C7CD827CAC78B008950F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = "Wallet-App/MainTabBarViewController.swift"; sourceTree = SOURCE_ROOT; };
+		636C7CDD27CACF40008950F7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		636C7CE127CAD0BA008950F7 /* View+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Pin.swift"; sourceTree = "<group>"; };
+		636C7CE327CAD4C9008950F7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		636C7CE527CAD4D2008950F7 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		636C7CE727CAD4E4008950F7 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		636C7CE927CAD560008950F7 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		636C7CEB27CAD7B8008950F7 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		636C7CED27CADD56008950F7 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		636C7CEF27CADEB0008950F7 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		636C7CF127CADEF8008950F7 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		636C7CF627CAE312008950F7 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		636C7CF827CAE4B6008950F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +104,7 @@
 		636C7C9827CA9B4B008950F7 = {
 			isa = PBXGroup;
 			children = (
+				636C7CF827CAE4B6008950F7 /* README.md */,
 				636C7CA327CA9B4B008950F7 /* Wallet-App */,
 				636C7CBA27CA9B4F008950F7 /* Wallet-AppTests */,
 				636C7CC427CA9B4F008950F7 /* Wallet-AppUITests */,
@@ -97,9 +125,13 @@
 		636C7CA327CA9B4B008950F7 /* Wallet-App */ = {
 			isa = PBXGroup;
 			children = (
+				636C7CD427CAC63B008950F7 /* Scenes */,
+				636C7CD727CAC722008950F7 /* Entities */,
+				636C7CF527CAE2FA008950F7 /* Service */,
+				636C7CE027CAD0A7008950F7 /* Utils */,
 				636C7CA427CA9B4B008950F7 /* AppDelegate.swift */,
 				636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */,
-				636C7CA827CA9B4B008950F7 /* ViewController.swift */,
+				636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */,
 				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
 				636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */,
 				636C7CB227CA9B4F008950F7 /* Info.plist */,
@@ -122,6 +154,79 @@
 				636C7CC727CA9B4F008950F7 /* Wallet_AppUITestsLaunchTests.swift */,
 			);
 			path = "Wallet-AppUITests";
+			sourceTree = "<group>";
+		};
+		636C7CD427CAC63B008950F7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CD527CAC6A6008950F7 /* Home Scene */,
+				636C7CD627CAC6BD008950F7 /* Analytics Scene */,
+				636C7CDC27CACF1A008950F7 /* History Scene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		636C7CD527CAC6A6008950F7 /* Home Scene */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CDF27CAD03A008950F7 /* View */,
+				636C7CED27CADD56008950F7 /* HomePresenter.swift */,
+				636C7CEF27CADEB0008950F7 /* HomeWorker.swift */,
+				636C7CE927CAD560008950F7 /* HomeRouter.swift */,
+				636C7CF127CADEF8008950F7 /* HomeModels.swift */,
+				636C7CD827CAC78B008950F7 /* HomeViewController.swift */,
+				636C7CEB27CAD7B8008950F7 /* HomeInteractor.swift */,
+			);
+			path = "Home Scene";
+			sourceTree = "<group>";
+		};
+		636C7CD627CAC6BD008950F7 /* Analytics Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Analytics Scene";
+			sourceTree = "<group>";
+		};
+		636C7CD727CAC722008950F7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CE327CAD4C9008950F7 /* Cards.swift */,
+				636C7CE527CAD4D2008950F7 /* Contacts.swift */,
+				636C7CE727CAD4E4008950F7 /* History.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		636C7CDC27CACF1A008950F7 /* History Scene */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CDD27CACF40008950F7 /* HistoryViewController.swift */,
+			);
+			path = "History Scene";
+			sourceTree = "<group>";
+		};
+		636C7CDF27CAD03A008950F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		636C7CE027CAD0A7008950F7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CE127CAD0BA008950F7 /* View+Pin.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		636C7CF527CAE2FA008950F7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CF627CAE312008950F7 /* DBService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +359,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636C7CA927CA9B4B008950F7 /* ViewController.swift in Sources */,
+				636C7CE827CAD4E4008950F7 /* History.swift in Sources */,
+				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
+				636C7CEC27CAD7B8008950F7 /* HomeInteractor.swift in Sources */,
+				636C7CE627CAD4D2008950F7 /* Contacts.swift in Sources */,
+				636C7CEE27CADD56008950F7 /* HomePresenter.swift in Sources */,
+				636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */,
 				636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */,
+				636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */,
+				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
+				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
+				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
+				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,
+				636C7CD927CAC78B008950F7 /* HomeViewController.swift in Sources */,
+				636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */,
+				636C7CEA27CAD560008950F7 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
