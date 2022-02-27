@@ -19,7 +19,7 @@ enum HomeInfo {
         }
         
         struct ViewModel {
-            struct DisplayedCard {
+            struct DisplayedCard: Hashable {
                 let type: String
                 let edningNumbers: String
                 let balance: String

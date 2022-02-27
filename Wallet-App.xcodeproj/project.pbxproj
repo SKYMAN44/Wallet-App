@@ -28,6 +28,7 @@
 		636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF127CADEF8008950F7 /* HomeModels.swift */; };
 		636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */; };
 		636C7CF727CAE312008950F7 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF627CAE312008950F7 /* DBService.swift */; };
+		636C7CFA27CBE061008950F7 /* purpleGradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CF927CBE061008950F7 /* purpleGradient.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		636C7CF627CAE312008950F7 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		636C7CF827CAE4B6008950F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		636C7CF927CBE061008950F7 /* purpleGradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = purpleGradient.jpg; path = "Wallet-App/purpleGradient.jpg"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */,
 				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
 				636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */,
+				636C7CF927CBE061008950F7 /* purpleGradient.jpg */,
 				636C7CB227CA9B4F008950F7 /* Info.plist */,
 			);
 			path = "Wallet-App";
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636C7CB127CA9B4F008950F7 /* LaunchScreen.storyboard in Resources */,
+				636C7CFA27CBE061008950F7 /* purpleGradient.jpg in Resources */,
 				636C7CAE27CA9B4F008950F7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

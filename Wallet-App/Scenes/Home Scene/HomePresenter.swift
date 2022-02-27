@@ -18,6 +18,10 @@ final class HomePresenter: HomePresentationLogic {
     
     
     func presentData(response: HomeInfo.ShowInfo.Response) {
-        
+        let mapped = response.cards.map {
+            HomeInfo.ShowInfo.ViewModel.DisplayedCard(type: $0.type, edningNumbers: "**" + $0.cardNumber.suffix(4), balance: "$ " + $0.balance)
+        }
+        let viewModel = HomeInfo.ShowInfo.ViewModel(displayedCards: mapped)
+        viewController?.displayContent(viewModel: viewModel)
     }
 }
