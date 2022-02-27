@@ -16,6 +16,7 @@ enum HomeInfo {
         
         struct Response {
             var cards: [Card]
+            var contacts: [Contact]
         }
         
         struct ViewModel {
@@ -25,7 +26,12 @@ enum HomeInfo {
                 let balance: String
             }
             
+            struct DisplayedContact: Hashable {
+                let id: Int
+            }
+            
             var displayedCards: [DisplayedCard]
+            var displayedContact: [DisplayedContact]
         }
     }
     

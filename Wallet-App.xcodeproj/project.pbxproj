@@ -29,6 +29,9 @@
 		636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */; };
 		636C7CF727CAE312008950F7 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CF627CAE312008950F7 /* DBService.swift */; };
 		636C7CFA27CBE061008950F7 /* purpleGradient.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CF927CBE061008950F7 /* purpleGradient.jpg */; };
+		636C7CFC27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */; };
+		636C7CFE27CBEF84008950F7 /* ContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */; };
+		636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		636C7CF627CAE312008950F7 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		636C7CF827CAE4B6008950F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		636C7CF927CBE061008950F7 /* purpleGradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = purpleGradient.jpg; path = "Wallet-App/purpleGradient.jpg"; sourceTree = SOURCE_ROOT; };
+		636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
+		636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */,
+				636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */,
+				636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */,
+				636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,14 +380,17 @@
 				636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */,
 				636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */,
 				636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */,
+				636C7CFC27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift in Sources */,
 				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
 				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
+				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,
 				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,
 				636C7CD927CAC78B008950F7 /* HomeViewController.swift in Sources */,
 				636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */,
 				636C7CEA27CAD560008950F7 /* HomeRouter.swift in Sources */,
+				636C7CFE27CBEF84008950F7 /* ContactCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,4 +12,8 @@ final class HomeWorker {
     func getCards() -> [Card] {
         return DBService.shared.getCards()
     }
+    
+    func getContacts() -> [Contact] {
+        return DBService.shared.getContacts()
+    }
 }

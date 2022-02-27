@@ -26,8 +26,10 @@ final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     
     func showInformation(request: HomeInfo.ShowInfo.Request) {
         let cards = worker.getCards()
+        let contacts = worker.getContacts()
         self.cards = cards
-        let response = HomeInfo.ShowInfo.Response(cards: cards)
+        self.contacts = contacts
+        let response = HomeInfo.ShowInfo.Response(cards: cards, contacts: contacts)
         presenter?.presentData(response: response)
     }
 }
