@@ -32,6 +32,8 @@
 		636C7CFC27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */; };
 		636C7CFE27CBEF84008950F7 /* ContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */; };
 		636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */; };
+		636C7D0227CC20E0008950F7 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D0127CC20E0008950F7 /* ScreenSize.swift */; };
+		636C7D0427CC3159008950F7 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D0327CC3159008950F7 /* HistoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		636C7D0127CC20E0008950F7 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		636C7D0327CC3159008950F7 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,7 @@
 				636C7CFB27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift */,
 				636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */,
 				636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */,
+				636C7D0327CC3159008950F7 /* HistoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				636C7CE127CAD0BA008950F7 /* View+Pin.swift */,
+				636C7D0127CC20E0008950F7 /* ScreenSize.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 			files = (
 				636C7CE827CAD4E4008950F7 /* History.swift in Sources */,
 				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
+				636C7D0427CC3159008950F7 /* HistoryCollectionViewCell.swift in Sources */,
 				636C7CEC27CAD7B8008950F7 /* HomeInteractor.swift in Sources */,
 				636C7CE627CAD4D2008950F7 /* Contacts.swift in Sources */,
 				636C7CEE27CADD56008950F7 /* HomePresenter.swift in Sources */,
@@ -382,6 +389,7 @@
 				636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */,
 				636C7CFC27CBE98A008950F7 /* CardHeaderCollectionReusableView.swift in Sources */,
 				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
+				636C7D0227CC20E0008950F7 /* ScreenSize.swift in Sources */,
 				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
 				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,

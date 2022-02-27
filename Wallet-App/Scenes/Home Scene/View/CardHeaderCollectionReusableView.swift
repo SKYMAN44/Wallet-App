@@ -15,22 +15,35 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 48, weight: .bold)
         label.text = "Cards"
+        label.numberOfLines = 0
         label.textAlignment = .left
+        label.contentMode = .bottom
         
         return label
     }()
     
+    private lazy var borderLayer: CAShapeLayer = {
+        let border = CAShapeLayer()
+        border.lineWidth = 2
+        border.strokeColor = UIColor.black.cgColor
+        border.lineDashPattern = [3, 5]
+        border.fillColor = nil
+
+        return border
+    }()
+    
     private let addButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "plus.square.dashed"), for: .normal)
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
-        button.pinWidth(to: button.heightAnchor)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .black
+        button.pinWidth(to: button.heightAnchor, 1)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 6
         
         return button
     }()
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,14 +54,26 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        borderLayer.frame = addButton.bounds
+        print(addButton.bounds)
+        borderLayer.path = UIBezierPath(roundedRect: addButton.bounds, cornerRadius: addButton.layer.cornerRadius).cgPath
+        addButton.layer.addSublayer(borderLayer)
+    }
+    
+    // MARK: - UI setup
     private func setupView() {
         let sV = UIStackView(arrangedSubviews: [titleLabel, addButton])
         sV.distribution = .fill
-        sV.alignment = .fill
+        sV.alignment = .bottom
         sV.axis = .horizontal
         
         addSubview(sV)
         
         sV.pin(to: self)
+        addButton.pinTop(to: sV, 20)
     }
 }

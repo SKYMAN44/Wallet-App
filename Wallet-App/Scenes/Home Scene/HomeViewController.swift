@@ -31,6 +31,7 @@ final class HomeViewController: UIViewController {
         collectionView.register(ContactHeaderCollectionReusableView.self, forSupplementaryViewOfKind: "HeaderContact", withReuseIdentifier: ContactHeaderCollectionReusableView.reuseIdentifier)
         collectionView.dataSource = self.dataSource
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         
         return collectionView
     }()
@@ -48,18 +49,11 @@ final class HomeViewController: UIViewController {
         self.view.backgroundColor = .white
         setup()
         setupCollection()
-        configureDataSource()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
@@ -102,8 +96,8 @@ final class HomeViewController: UIViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15)
                 let groupSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(0.8),
-                    heightDimension: .absolute(150)
+                    widthDimension: .fractionalWidth(0.82),
+                    heightDimension: .absolute(160)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
@@ -112,12 +106,10 @@ final class HomeViewController: UIViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 20, bottom: 20, trailing: 20)
                 
                 section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
-                    let centerPoint = CGPoint(x: point.x + self!.view.frame.width / 2, y: 200)
-                    
+                    let centerX = point.x + ScreenSize.Width / 2
                     visibleItems.forEach { item in
                         guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? CardCollectionViewCell else { return }
-                        
-                        if(item.frame.contains(centerPoint)) {
+                        if(cell.frame.minX <= centerX && cell.frame.maxX >= centerX) {
                             cell.transformToLarge()
                         } else {
                             cell.transformBack()
@@ -140,7 +132,7 @@ final class HomeViewController: UIViewController {
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 5)
                 section.boundarySupplementaryItems = [headerCItem]
                 
                 return section
@@ -180,6 +172,7 @@ extension HomeViewController {
                     return cell
                 } else {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContactCollectionViewCell.reuseIdentifier, for: indexPath) as? ContactCollectionViewCell
+                    cell?.configureNormal(contact: item as! HomeInfo.ShowInfo.ViewModel.DisplayedContact)
                     
                     return cell
                 }

@@ -107,11 +107,13 @@ extension CardCollectionViewCell {
     public func transformToLarge() {
         UIView.animate(withDuration: 0.2) {
             self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            self.contentView.alpha = 1
         }
     }
     
     public func transformBack() {
         UIView.animate(withDuration: 0.1) {
+            self.contentView.alpha = 0.5
             self.transform = CGAffineTransform.identity
         }
     }

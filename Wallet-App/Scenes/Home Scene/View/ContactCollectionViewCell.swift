@@ -22,6 +22,16 @@ class ContactCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    private lazy var borderLayer: CAShapeLayer = {
+        let border = CAShapeLayer()
+        border.lineWidth = 2
+        border.strokeColor = UIColor.black.cgColor
+        border.lineDashPattern = [3, 5]
+        border.fillColor = nil
+        
+        return border
+    }()
+    
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,10 +43,16 @@ class ContactCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        borderLayer.removeFromSuperlayer()
+    }
+    
     //MARK: - UI setup
     private func setupView() {
         self.contentView.layer.cornerRadius = self.frame.width / 2
-        self.contentView.backgroundColor = .cyan
+        self.contentView.backgroundColor = .clear
         self.contentView.layer.masksToBounds = true
         contentView.addSubview(imageView)
         
@@ -44,23 +60,17 @@ class ContactCollectionViewCell: UICollectionViewCell {
     }
     
     public func configureNormal(contact: HomeInfo.ShowInfo.ViewModel.DisplayedContact) {
-        
+        imageView.image = UIImage(named: "purpleGradient.jpg")
+        imageView.contentMode = .scaleToFill
     }
     
     public func configureAdd() {
         imageView.image = UIImage(systemName: "plus")
         imageView.tintColor = .black
         imageView.contentMode = .center
-        self.contentView.backgroundColor = .clear
-        let border = CAShapeLayer()
-        border.lineWidth = 2
-        border.strokeColor = UIColor.black.cgColor
-        border.lineDashPattern = [2, 5]
-        border.frame = contentView.bounds
-        border.fillColor = nil
-        border.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-        contentView.layer.addSublayer(border)
-//        self.contentView.layer.borderWidth = 1
-//        self.contentView.layer.borderColor = UIColor.systemGray4.cgColor
+        
+        borderLayer.frame = contentView.bounds
+        borderLayer.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+        contentView.layer.addSublayer(borderLayer)
     }
 }
