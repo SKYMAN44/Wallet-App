@@ -37,6 +37,7 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .black
         button.pinWidth(to: button.heightAnchor, 1)
+        button.setHeight(to: 35)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 6
         
@@ -68,12 +69,11 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
     private func setupView() {
         let sV = UIStackView(arrangedSubviews: [titleLabel, addButton])
         sV.distribution = .fill
-        sV.alignment = .lastBaseline
+        sV.alignment = .center
         sV.axis = .horizontal
         
         addSubview(sV)
         
         sV.pin(to: self)
-        addButton.pinTop(to: sV, 20)
     }
 }

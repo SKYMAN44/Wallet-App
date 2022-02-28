@@ -87,7 +87,7 @@ final class HomeViewController: UIViewController {
     private func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             
-            let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+            let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(48))
             let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "Header", alignment: .top)
             let headerCItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
             let headerCItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerCItemSize, elementKind: "HeaderContact", alignment: .top)
