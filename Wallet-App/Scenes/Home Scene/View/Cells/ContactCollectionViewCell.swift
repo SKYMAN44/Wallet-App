@@ -60,7 +60,7 @@ class ContactCollectionViewCell: UICollectionViewCell {
     }
     
     public func configureNormal(contact: HomeInfo.ShowInfo.ViewModel.DisplayedContact) {
-        imageView.image = UIImage(named: "purpleGradient.jpg")
+        imageView.image = UIImage(named: contact.imageURL)
         imageView.contentMode = .scaleToFill
     }
     

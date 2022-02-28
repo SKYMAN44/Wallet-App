@@ -9,4 +9,5 @@ import Foundation
 
 struct Contact {
     let id: Int
+    let imageURL: String
 }

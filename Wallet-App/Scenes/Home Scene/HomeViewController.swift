@@ -26,9 +26,11 @@ final class HomeViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell.reuseIdentifier)
         collectionView.register(ContactCollectionViewCell.self, forCellWithReuseIdentifier: ContactCollectionViewCell.reuseIdentifier)
+        collectionView.register(HistoryCollectionViewCell.self, forCellWithReuseIdentifier: HistoryCollectionViewCell.reuseIdentifier)
         
         collectionView.register(CardHeaderCollectionReusableView.self, forSupplementaryViewOfKind: "Header", withReuseIdentifier: CardHeaderCollectionReusableView.reuseIdentifier)
         collectionView.register(ContactHeaderCollectionReusableView.self, forSupplementaryViewOfKind: "HeaderContact", withReuseIdentifier: ContactHeaderCollectionReusableView.reuseIdentifier)
+        collectionView.register(HistoryCollectionReusableView.self, forSupplementaryViewOfKind: "HeaderHistory", withReuseIdentifier: HistoryCollectionReusableView.reuseIdentifier)
         collectionView.dataSource = self.dataSource
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -39,6 +41,7 @@ final class HomeViewController: UIViewController {
     private var dataSource: DataSource?
     private var displayedCards = [HomeInfo.ShowInfo.ViewModel.DisplayedCard]()
     private var displayedContacts = [HomeInfo.ShowInfo.ViewModel.DisplayedContact]()
+    private var displayedHistory = [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]()
     var interactor: (HomeBusinessLogic & HomeDataStore)?
     
     // MARK: - LifeCycle
@@ -88,6 +91,8 @@ final class HomeViewController: UIViewController {
             let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "Header", alignment: .top)
             let headerCItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
             let headerCItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerCItemSize, elementKind: "HeaderContact", alignment: .top)
+            let headerHItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
+            let headerHItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerHItemSize, elementKind: "HeaderHistory", alignment: .top)
             
             let section = self.sections[sectionIndex]
             switch section {
@@ -125,7 +130,7 @@ final class HomeViewController: UIViewController {
                 
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1/7),
-                    heightDimension: .fractionalHeight(1)
+                    heightDimension: .fractionalWidth(1/7)
                 )
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .none, trailing: .fixed(15), bottom: .none)
@@ -137,14 +142,17 @@ final class HomeViewController: UIViewController {
                 
                 return section
             case .history:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(300)
+                    heightDimension: .absolute(56)
                 )
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .none, top: .fixed(10), trailing: .none, bottom: .fixed(10))
                 let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+                section.boundarySupplementaryItems = [headerHItem]
                 
                 return section
             }
@@ -176,8 +184,11 @@ extension HomeViewController {
                     
                     return cell
                 }
-            default:
-                fatalError("Pizdets")
+            case .history:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HistoryCollectionViewCell.reuseIdentifier, for: indexPath) as? HistoryCollectionViewCell
+                cell?.configure(expense: item as! HomeInfo.ShowInfo.ViewModel.DisplayedHistory)
+                
+                return cell
             }
            
         })
@@ -192,15 +203,20 @@ extension HomeViewController {
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: "HeaderContact", withReuseIdentifier: ContactHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as! ContactHeaderCollectionReusableView
                 
                 return headerView
+            case "HeaderHistory":
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: "HeaderHistory", withReuseIdentifier: HistoryCollectionReusableView.reuseIdentifier, for: indexPath)
+                
+                return headerView
             default:
                 return nil
             }
         }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
-        snapshot.appendSections([.cards, .contacts])
+        snapshot.appendSections([.cards, .contacts, .history])
         snapshot.appendItems(displayedCards, toSection: .cards)
         snapshot.appendItems(displayedContacts, toSection: .contacts)
+        snapshot.appendItems(displayedHistory, toSection: .history)
         sections = snapshot.sectionIdentifiers
         dataSource?.apply(snapshot)
     }
@@ -211,8 +227,9 @@ extension HomeViewController: HomeSceneDisplayLogic {
     func displayContent(viewModel: HomeInfo.ShowInfo.ViewModel) {
         self.displayedCards = viewModel.displayedCards
         self.displayedContacts = viewModel.displayedContact
+        self.displayedHistory = viewModel.displayedHistory
         // addContact Button
-        self.displayedContacts.insert(HomeInfo.ShowInfo.ViewModel.DisplayedContact(id: 0), at: 0)
+        self.displayedContacts.insert(HomeInfo.ShowInfo.ViewModel.DisplayedContact(id: 0, imageURL: ""), at: 0)
         configureDataSource()
     }
 }

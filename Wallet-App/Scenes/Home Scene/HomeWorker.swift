@@ -16,4 +16,8 @@ final class HomeWorker {
     func getContacts() -> [Contact] {
         return DBService.shared.getContacts()
     }
+    
+    func getHistory() -> [Expenses] {
+        return DBService.shared.getExpenses()
+    }
 }

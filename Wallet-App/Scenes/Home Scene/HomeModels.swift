@@ -29,6 +29,7 @@ enum HomeInfo {
             
             struct DisplayedContact: Hashable {
                 let id: Int
+                let imageURL: String
             }
             
             struct DisplayedHistory: Hashable {

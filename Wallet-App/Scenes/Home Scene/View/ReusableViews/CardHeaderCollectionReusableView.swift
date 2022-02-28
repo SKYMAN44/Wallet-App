@@ -68,7 +68,7 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
     private func setupView() {
         let sV = UIStackView(arrangedSubviews: [titleLabel, addButton])
         sV.distribution = .fill
-        sV.alignment = .bottom
+        sV.alignment = .lastBaseline
         sV.axis = .horizontal
         
         addSubview(sV)

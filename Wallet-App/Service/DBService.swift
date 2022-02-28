@@ -22,14 +22,20 @@ final class DBService {
     
     public func getContacts() -> [Contact] {
         return [
-            Contact(id: 1),
-            Contact(id: 2),
-            Contact(id: 3),
-            Contact(id: 4),
-            Contact(id: 5),
-            Contact(id: 6),
-            Contact(id: 7),
-            Contact(id: 8)
+            Contact(id: 1, imageURL: "testPerson.jpeg"),
+            Contact(id: 2, imageURL: "testPerson2.jpeg"),
+            Contact(id: 3, imageURL: "testPerson3.jpeg"),
+            Contact(id: 4, imageURL: "purpleGradient.jpg"),
+            Contact(id: 5, imageURL: "testPerson3.jpeg"),
+            Contact(id: 6, imageURL: "purpleGradient.jpg"),
+        ]
+    }
+    
+    public func getExpenses() -> [Expenses] {
+        return [
+            Expenses(recieverName: "Apple Store", date: "09:30 am", amount: "334"),
+            Expenses(recieverName: "Creative Cloud", date: "06 Aug. 2021", amount: "1234"),
+            Expenses(recieverName: "Spar", date: "07 Aug. 2021", amount: "56")
         ]
     }
 }

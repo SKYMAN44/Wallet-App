@@ -31,7 +31,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     private let balanceNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray5
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         label.text = "Balance"
         label.textAlignment = .left
         
@@ -41,7 +41,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     private let balanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         label.textAlignment = .left
         
         return label
@@ -83,13 +83,13 @@ class CardCollectionViewCell: UICollectionViewCell {
         balanceSV.distribution = .fill
         balanceSV.alignment = .fill
         balanceSV.axis = .vertical
-        balanceSV.spacing = 8
+        balanceSV.spacing = 5
         
         let mainSV = UIStackView(arrangedSubviews: [topSV, balanceSV])
         mainSV.distribution = .fill
         mainSV.alignment = .fill
         mainSV.axis = .vertical
-        mainSV.spacing = 50
+        mainSV.spacing = 60
         
         contentView.addSubview(mainSV)
         mainSV.pin(to: contentView, [.left: 15, .right: 15, .top: 15, .bottom: 15])

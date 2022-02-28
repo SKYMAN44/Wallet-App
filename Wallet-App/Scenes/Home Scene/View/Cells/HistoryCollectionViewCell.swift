@@ -12,24 +12,35 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.pinWidth(to: imageView.heightAnchor, 1)
+        imageView.layer.cornerRadius = 12
+        imageView.layer.masksToBounds = true
         
         return imageView
     }()
     
     private let recieverLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
+        label.textColor = .black
         
         return label
     }()
     
     private let dateLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        label.textColor = .systemGray4
         
         return label
     }()
     
     private let amountLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = .black
+        label.textAlignment = .right
         
         return label
     }()
@@ -59,7 +70,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         
         let mainSV = UIStackView(arrangedSubviews: [imageView, textSV, amountLabel])
         mainSV.distribution = .fill
-        mainSV.alignment = .fill
+        mainSV.alignment = .center
         mainSV.axis = .horizontal
         mainSV.spacing = 12
         
@@ -72,6 +83,8 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         recieverLabel.text = expense.recieverName
         dateLabel.text = expense.date
         amountLabel.text = expense.amount
+        imageView.image = UIImage(named: "purpleGradient.jpg")
+        imageView.contentMode = .scaleAspectFill
     }
 
 }
