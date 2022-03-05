@@ -38,6 +38,13 @@
 		636C7D0A27CD1BBB008950F7 /* testPerson3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 636C7D0927CD1BBB008950F7 /* testPerson3.jpeg */; };
 		636C7D0C27CD1BC4008950F7 /* testPerson2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 636C7D0B27CD1BC4008950F7 /* testPerson2.jpeg */; };
 		636C7D0E27CD1BCB008950F7 /* testPerson.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 636C7D0D27CD1BCB008950F7 /* testPerson.jpeg */; };
+		636C7D1027CE7FB9008950F7 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D0F27CE7FB9008950F7 /* AnalyticsViewController.swift */; };
+		636C7D1227D242CE008950F7 /* AnalyticsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1127D242CE008950F7 /* AnalyticsInteractor.swift */; };
+		636C7D1427D242DB008950F7 /* AnalyticsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1327D242DB008950F7 /* AnalyticsPresenter.swift */; };
+		636C7D1627D242E8008950F7 /* AnalyticsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1527D242E8008950F7 /* AnalyticsWorker.swift */; };
+		636C7D1827D242F5008950F7 /* AnalyticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1727D242F5008950F7 /* AnalyticsModels.swift */; };
+		636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1927D24312008950F7 /* AnalyticsRouter.swift */; };
+		636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1D27D3E10E008950F7 /* PieChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,13 @@
 		636C7D0927CD1BBB008950F7 /* testPerson3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testPerson3.jpeg; sourceTree = "<group>"; };
 		636C7D0B27CD1BC4008950F7 /* testPerson2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testPerson2.jpeg; sourceTree = "<group>"; };
 		636C7D0D27CD1BCB008950F7 /* testPerson.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testPerson.jpeg; sourceTree = "<group>"; };
+		636C7D0F27CE7FB9008950F7 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		636C7D1127D242CE008950F7 /* AnalyticsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsInteractor.swift; sourceTree = "<group>"; };
+		636C7D1327D242DB008950F7 /* AnalyticsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenter.swift; sourceTree = "<group>"; };
+		636C7D1527D242E8008950F7 /* AnalyticsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsWorker.swift; sourceTree = "<group>"; };
+		636C7D1727D242F5008950F7 /* AnalyticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModels.swift; sourceTree = "<group>"; };
+		636C7D1927D24312008950F7 /* AnalyticsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRouter.swift; sourceTree = "<group>"; };
+		636C7D1D27D3E10E008950F7 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +221,13 @@
 		636C7CD627CAC6BD008950F7 /* Analytics Scene */ = {
 			isa = PBXGroup;
 			children = (
+				636C7D1B27D2437E008950F7 /* View */,
+				636C7D1327D242DB008950F7 /* AnalyticsPresenter.swift */,
+				636C7D1527D242E8008950F7 /* AnalyticsWorker.swift */,
+				636C7D1727D242F5008950F7 /* AnalyticsModels.swift */,
+				636C7D0F27CE7FB9008950F7 /* AnalyticsViewController.swift */,
+				636C7D1127D242CE008950F7 /* AnalyticsInteractor.swift */,
+				636C7D1927D24312008950F7 /* AnalyticsRouter.swift */,
 			);
 			path = "Analytics Scene";
 			sourceTree = "<group>";
@@ -243,6 +264,7 @@
 			children = (
 				636C7CE127CAD0BA008950F7 /* View+Pin.swift */,
 				636C7D0127CC20E0008950F7 /* ScreenSize.swift */,
+				636C7D1D27D3E10E008950F7 /* PieChartView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -273,6 +295,21 @@
 				636C7D0727CCF993008950F7 /* HistoryCollectionReusableView.swift */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		636C7D1B27D2437E008950F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				636C7D1C27D24384008950F7 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		636C7D1C27D24384008950F7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +452,7 @@
 				636C7CEC27CAD7B8008950F7 /* HomeInteractor.swift in Sources */,
 				636C7CE627CAD4D2008950F7 /* Contacts.swift in Sources */,
 				636C7CEE27CADD56008950F7 /* HomePresenter.swift in Sources */,
+				636C7D1627D242E8008950F7 /* AnalyticsWorker.swift in Sources */,
 				636C7D0827CCF993008950F7 /* HistoryCollectionReusableView.swift in Sources */,
 				636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */,
 				636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */,
@@ -423,12 +461,18 @@
 				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
 				636C7D0227CC20E0008950F7 /* ScreenSize.swift in Sources */,
 				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
+				636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */,
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
+				636C7D1227D242CE008950F7 /* AnalyticsInteractor.swift in Sources */,
+				636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */,
 				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,
 				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,
+				636C7D1427D242DB008950F7 /* AnalyticsPresenter.swift in Sources */,
 				636C7CD927CAC78B008950F7 /* HomeViewController.swift in Sources */,
+				636C7D1027CE7FB9008950F7 /* AnalyticsViewController.swift in Sources */,
 				636C7CF427CADF7B008950F7 /* CardCollectionViewCell.swift in Sources */,
+				636C7D1827D242F5008950F7 /* AnalyticsModels.swift in Sources */,
 				636C7CEA27CAD560008950F7 /* HomeRouter.swift in Sources */,
 				636C7CFE27CBEF84008950F7 /* ContactCollectionViewCell.swift in Sources */,
 			);

@@ -31,6 +31,8 @@ class HistoryCollectionReusableView: UICollectionReusableView {
         return button
     }()
     
+    public var transitionClosure: ( () -> Void )?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -54,6 +56,8 @@ class HistoryCollectionReusableView: UICollectionReusableView {
     
     @objc
     private func seeAllPressed() {
-        print("pressedF4")
+        if let transitionClosure = transitionClosure {
+            transitionClosure()
+        }
     }
 }

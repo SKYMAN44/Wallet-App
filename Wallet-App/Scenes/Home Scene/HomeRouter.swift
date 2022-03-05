@@ -6,3 +6,25 @@
 //
 
 import Foundation
+
+
+protocol HomeRouterLogic {
+    func routeToAnalytics()
+}
+
+final class HomeRouter: HomeRouterLogic {
+    
+    weak var controller: HomeViewController?
+    weak var dataSource: HomeDataStore?
+    
+    func routeToAnalytics() {
+        navigateToAnalytics(source: controller, destination: AnalyticsViewController())
+    }
+    
+    
+    private func navigateToAnalytics(source: HomeViewController?, destination: AnalyticsViewController) {
+        source?.hidesBottomBarWhenPushed = true
+        source?.navigationController?.pushViewController(destination, animated: true)
+        source?.hidesBottomBarWhenPushed = false
+    }
+}

@@ -43,27 +43,37 @@ final class HomeViewController: UIViewController {
     private var displayedContacts = [HomeInfo.ShowInfo.ViewModel.DisplayedContact]()
     private var displayedHistory = [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]()
     var interactor: (HomeBusinessLogic & HomeDataStore)?
+    var router: HomeRouterLogic?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.view.backgroundColor = .white
         setup()
         setupCollection()
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
     private func setup() {
         let interactor = HomeInteractor()
         let presenter = HomePresenter()
+        let router = HomeRouter()
         self.interactor = interactor
+        self.router = router
+        router.controller = self
         interactor.presenter = presenter
         presenter.viewController = self
     }
@@ -204,8 +214,10 @@ extension HomeViewController {
                 
                 return headerView
             case "HeaderHistory":
-                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: "HeaderHistory", withReuseIdentifier: HistoryCollectionReusableView.reuseIdentifier, for: indexPath)
-                
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: "HeaderHistory", withReuseIdentifier: HistoryCollectionReusableView.reuseIdentifier, for: indexPath) as? HistoryCollectionReusableView
+                headerView?.transitionClosure = { [weak self] in
+                    self?.router?.routeToAnalytics()
+                }
                 return headerView
             default:
                 return nil

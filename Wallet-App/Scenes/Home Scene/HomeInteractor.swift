@@ -11,7 +11,7 @@ protocol HomeBusinessLogic {
     func showInformation(request: HomeInfo.ShowInfo.Request)
 }
 
-protocol HomeDataStore {
+protocol HomeDataStore: AnyObject {
     var cards: [Card]? { get }
     var contacts: [Contact]? { get }
     var history: [Expenses]? { get }
