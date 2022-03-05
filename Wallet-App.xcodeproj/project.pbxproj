@@ -45,6 +45,7 @@
 		636C7D1827D242F5008950F7 /* AnalyticsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1727D242F5008950F7 /* AnalyticsModels.swift */; };
 		636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1927D24312008950F7 /* AnalyticsRouter.swift */; };
 		636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1D27D3E10E008950F7 /* PieChartView.swift */; };
+		636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,7 @@
 		636C7CC527CA9B4F008950F7 /* Wallet_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet_AppUITests.swift; sourceTree = "<group>"; };
 		636C7CC727CA9B4F008950F7 /* Wallet_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		636C7CD827CAC78B008950F7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = "Wallet-App/MainTabBarViewController.swift"; sourceTree = SOURCE_ROOT; };
+		636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = "Wallet-App/Main/MainTabBarViewController.swift"; sourceTree = SOURCE_ROOT; };
 		636C7CDD27CACF40008950F7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		636C7CE127CAD0BA008950F7 /* View+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Pin.swift"; sourceTree = "<group>"; };
 		636C7CE327CAD4C9008950F7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		636C7D1727D242F5008950F7 /* AnalyticsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsModels.swift; sourceTree = "<group>"; };
 		636C7D1927D24312008950F7 /* AnalyticsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRouter.swift; sourceTree = "<group>"; };
 		636C7D1D27D3E10E008950F7 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGraphicsCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,13 +161,11 @@
 		636C7CA327CA9B4B008950F7 /* Wallet-App */ = {
 			isa = PBXGroup;
 			children = (
+				636C7D1F27D414E8008950F7 /* Main */,
 				636C7CD427CAC63B008950F7 /* Scenes */,
 				636C7CD727CAC722008950F7 /* Entities */,
 				636C7CF527CAE2FA008950F7 /* Service */,
 				636C7CE027CAD0A7008950F7 /* Utils */,
-				636C7CA427CA9B4B008950F7 /* AppDelegate.swift */,
-				636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */,
-				636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */,
 				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
 				636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */,
 				636C7CF927CBE061008950F7 /* purpleGradient.jpg */,
@@ -300,6 +300,7 @@
 		636C7D1B27D2437E008950F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				636C7D2027D41568008950F7 /* ReusableViews */,
 				636C7D1C27D24384008950F7 /* Cells */,
 			);
 			path = View;
@@ -310,6 +311,24 @@
 			children = (
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		636C7D1F27D414E8008950F7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CA427CA9B4B008950F7 /* AppDelegate.swift */,
+				636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */,
+				636C7CDA27CACE3D008950F7 /* MainTabBarViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		636C7D2027D41568008950F7 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */,
 				636C7CE827CAD4E4008950F7 /* History.swift in Sources */,
 				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
 				636C7D0427CC3159008950F7 /* HistoryCollectionViewCell.swift in Sources */,

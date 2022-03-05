@@ -123,7 +123,8 @@ final class HomeViewController: UIViewController {
                 section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
                     let centerX = point.x + ScreenSize.Width / 2
                     visibleItems.forEach { item in
-                        guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? CardCollectionViewCell else { return }
+                        guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? CardCollectionViewCell
+                        else { return }
                         if(cell.frame.minX <= centerX && cell.frame.maxX >= centerX) {
                             cell.transformToLarge()
                         } else {
