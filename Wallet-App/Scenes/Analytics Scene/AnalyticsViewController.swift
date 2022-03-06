@@ -47,15 +47,20 @@ final class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.largeTitleDisplayMode = .never
+//        navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.backItem?.title = ""
-       
-        self.title = "Analytics"
         self.view.backgroundColor = .white
         
         setup()
         setupView()
         fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.title = "Analytics"
     }
     
     private func setup() {
