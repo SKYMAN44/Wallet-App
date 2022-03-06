@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+final class AnalyticsWorker {
+    func getHistory() -> [Expenses] {
+        return DBService.shared.getExpenses()
+    }
+}

@@ -17,7 +17,7 @@ final class HomeRouter: HomeRouterLogic {
     weak var controller: HomeViewController?
     weak var dataSource: HomeDataStore?
     
-    func routeToAnalytics() {
+    public func routeToAnalytics() {
         navigateToAnalytics(source: controller, destination: AnalyticsViewController())
     }
     

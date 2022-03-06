@@ -7,6 +7,7 @@
 
 import UIKit
 
+// remove
 class CardHeaderCollectionReusableView: UICollectionReusableView {
     static let reuseIdentifier = "CardHeaderCollectionReusableView"
     
@@ -60,7 +61,6 @@ class CardHeaderCollectionReusableView: UICollectionReusableView {
         super.draw(rect)
         
         borderLayer.frame = addButton.bounds
-        print(addButton.bounds)
         borderLayer.path = UIBezierPath(roundedRect: addButton.bounds, cornerRadius: addButton.layer.cornerRadius).cgPath
         addButton.layer.addSublayer(borderLayer)
     }
