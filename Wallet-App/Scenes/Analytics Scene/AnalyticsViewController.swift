@@ -27,6 +27,10 @@ final class AnalyticsViewController: UIViewController {
     private let segmentController: UISegmentedControl = {
         let segment = UISegmentedControl(items: ["Week", "Month", "Year"])
         segment.selectedSegmentIndex = 0
+        let titleTextAttributesForNormal = [NSAttributedString.Key.foregroundColor: UIColor.systemGray4]
+        let titleTextAttributesForSelected = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+        segment.setTitleTextAttributes(titleTextAttributesForNormal, for: .normal)
+        segment.setTitleTextAttributes(titleTextAttributesForSelected, for: .selected)
         
         return segment
     }()
@@ -97,7 +101,7 @@ final class AnalyticsViewController: UIViewController {
     // MARK: - Layout
     private func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            let graphItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(150))
+            let graphItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(300))
             let graphItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: graphItemSize, elementKind: SupplementaryViewKind.graph, alignment: .top)
             graphItem.pinToVisibleBounds = true
             
@@ -116,9 +120,20 @@ final class AnalyticsViewController: UIViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
                 section.boundarySupplementaryItems = [graphItem]
                 
+                section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
+                    guard let graph = self?.collectionView.supplementaryView(
+                        forElementKind: SupplementaryViewKind.graph,
+                        at: IndexPath(row: 0, section: 0)
+                    ) as? StatGraphicsCollectionReusableView else { return }
+                    if(point.y > 20) {
+                        graph.changeStyle(true)
+                    }
+                    if(point.y < -20) {
+                        graph.changeStyle(false)
+                    }
+                }
+                
                 return section
-            default:
-                return nil
             }
         }
         return layout

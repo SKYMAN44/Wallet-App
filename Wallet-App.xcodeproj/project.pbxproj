@@ -46,6 +46,7 @@
 		636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1927D24312008950F7 /* AnalyticsRouter.swift */; };
 		636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1D27D3E10E008950F7 /* PieChartView.swift */; };
 		636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */; };
+		636C7D2627D57191008950F7 /* StackedBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2527D57191008950F7 /* StackedBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		636C7D1927D24312008950F7 /* AnalyticsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsRouter.swift; sourceTree = "<group>"; };
 		636C7D1D27D3E10E008950F7 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGraphicsCollectionReusableView.swift; sourceTree = "<group>"; };
+		636C7D2527D57191008950F7 /* StackedBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 				636C7CE127CAD0BA008950F7 /* View+Pin.swift */,
 				636C7D0127CC20E0008950F7 /* ScreenSize.swift */,
 				636C7D1D27D3E10E008950F7 /* PieChartView.swift */,
+				636C7D2527D57191008950F7 /* StackedBarView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
 				636C7D0227CC20E0008950F7 /* ScreenSize.swift in Sources */,
 				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
+				636C7D2627D57191008950F7 /* StackedBarView.swift in Sources */,
 				636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */,
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
 				636C7D1227D242CE008950F7 /* AnalyticsInteractor.swift in Sources */,
