@@ -10,10 +10,15 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // save some fake data
+        let fileService = FileService()
+        fileService.saveData(data: DBService.shared.getCards(), path: "Cards")
+        fileService.saveData(data: DBService.shared.getContacts(), path: "Contacts")
+        fileService.saveData(data: DBService.shared.getExpenses(), path: "Expenses")
+        
         return true
     }
 

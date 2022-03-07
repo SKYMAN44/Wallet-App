@@ -75,6 +75,7 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = self.dataSource
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.automaticallyAdjustsScrollIndicatorInsets = false
         collectionView.delegate = self
         
         return collectionView
@@ -93,6 +94,7 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
+        setupNavBar()
         setup()
         setupCollection()
         fetchData()
@@ -101,12 +103,14 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        setupNavBar()
+        self.navigationItem.largeTitleDisplayMode = .never
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.setNeedsDisplay()
         showButton(true)
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -143,7 +147,6 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = "Cards"
         navigationController?.navigationBar.prefersLargeTitles = true
 

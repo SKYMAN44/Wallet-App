@@ -11,3 +11,5 @@ struct Contact {
     let id: Int
     let imageURL: String
 }
+
+extension Contact: Codable { }

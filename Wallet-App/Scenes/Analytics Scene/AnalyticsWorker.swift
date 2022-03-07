@@ -8,7 +8,18 @@
 import Foundation
 
 final class AnalyticsWorker {
-    func getHistory() -> [Expenses] {
-        return DBService.shared.getExpenses()
+    private var storageService: PersistanceStorage
+    
+    init(service: PersistanceStorage) {
+        self.storageService = service
+    }
+    
+    public func getHistory() -> [Expenses] {
+        var expenses: [Expenses]?
+        expenses = storageService.loadData(path: "Expenses")
+        if let expenses = expenses {
+            return expenses
+        }
+        return []
     }
 }

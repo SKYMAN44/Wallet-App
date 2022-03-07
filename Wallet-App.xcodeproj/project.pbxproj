@@ -47,6 +47,8 @@
 		636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D1D27D3E10E008950F7 /* PieChartView.swift */; };
 		636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */; };
 		636C7D2627D57191008950F7 /* StackedBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2527D57191008950F7 /* StackedBarView.swift */; };
+		636C7D2827D6580F008950F7 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2727D6580E008950F7 /* FileService.swift */; };
+		636C7D2A27D6AB48008950F7 /* PersistanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		636C7D1D27D3E10E008950F7 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatGraphicsCollectionReusableView.swift; sourceTree = "<group>"; };
 		636C7D2527D57191008950F7 /* StackedBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedBarView.swift; sourceTree = "<group>"; };
+		636C7D2727D6580E008950F7 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,8 @@
 		636C7CF527CAE2FA008950F7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */,
+				636C7D2727D6580E008950F7 /* FileService.swift */,
 				636C7CF627CAE312008950F7 /* DBService.swift */,
 			);
 			path = Service;
@@ -473,8 +479,10 @@
 				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
 				636C7D0427CC3159008950F7 /* HistoryCollectionViewCell.swift in Sources */,
 				636C7CEC27CAD7B8008950F7 /* HomeInteractor.swift in Sources */,
+				636C7D2827D6580F008950F7 /* FileService.swift in Sources */,
 				636C7CE627CAD4D2008950F7 /* Contacts.swift in Sources */,
 				636C7CEE27CADD56008950F7 /* HomePresenter.swift in Sources */,
+				636C7D2A27D6AB48008950F7 /* PersistanceStorage.swift in Sources */,
 				636C7D1627D242E8008950F7 /* AnalyticsWorker.swift in Sources */,
 				636C7D0827CCF993008950F7 /* HistoryCollectionReusableView.swift in Sources */,
 				636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */,

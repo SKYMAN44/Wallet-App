@@ -19,7 +19,7 @@ protocol HomeDataStore: AnyObject {
 
 final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
-    var worker = HomeWorker()
+    var worker = HomeWorker(service: FileService())
     var cards: [Card]?
     var contacts: [Contact]?
     var history: [Expenses]?

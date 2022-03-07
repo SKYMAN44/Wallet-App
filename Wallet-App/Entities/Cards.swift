@@ -7,9 +7,10 @@
 
 import Foundation
 
-
 struct Card {
     let type: String
     let balance: String
     let cardNumber: String
 }
+
+extension Card: Codable { }

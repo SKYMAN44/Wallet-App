@@ -14,6 +14,7 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     private let stackedBar: StackedBarView
     private var heightConstraint: NSLayoutConstraint?
     private let tempItems = [Item(percent: 0.4, color: .cyan), Item(percent: 0.3, color: .orange), Item(percent: 0.2, color: .green)]
+    
     // MARK: - Init
     override init(frame: CGRect) {
         pieChart = PieChart(frame: frame, items: tempItems)
@@ -42,9 +43,11 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     public func changeStyle(_ toCompact: Bool) {
         if toCompact {
             self.heightConstraint?.constant = 60
-            self.pieChart.isHidden = true
-            self.stackedBar.isHidden = false
-            self.stackedBar.setNeedsDisplay()
+            UIView.animate(withDuration: 0.3) {
+                self.pieChart.isHidden = true
+                self.stackedBar.isHidden = false
+                self.stackedBar.setNeedsDisplay()
+            }
         } else {
             self.heightConstraint?.constant = 300
             self.pieChart.isHidden = false

@@ -18,7 +18,7 @@ protocol AnalyticsDataStore: AnyObject {
 
 final class AnalyticsInteractor: AnalyticsBusinessLogic, AnalyticsDataStore {
     var presenter: AnalyticsPresentationLogic?
-    var worker = AnalyticsWorker()
+    var worker = AnalyticsWorker(service: FileService())
     var history: [Expenses]?
     
     func showInformation(request: AnalyticsInfo.ShowInfo.Request) {
