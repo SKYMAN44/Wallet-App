@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FileService: PersistanceStorage {
+final class FileService: PersistanceStorage {
     func saveData<StoreItem>(data: [StoreItem], path: String) where StoreItem : Codable {
         do {
             let storageDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)

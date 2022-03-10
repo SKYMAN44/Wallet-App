@@ -12,8 +12,8 @@ protocol AnalyticsBusinessLogic {
     func showInformation(request: AnalyticsInfo.ShowInfo.Request)
 }
 
-protocol AnalyticsDataStore: AnyObject {
-    var history: [Expenses]? { get }
+protocol AnalyticsDataStore {
+    var history: [Expenses]? { get set }
 }
 
 final class AnalyticsInteractor: AnalyticsBusinessLogic, AnalyticsDataStore {
@@ -22,8 +22,9 @@ final class AnalyticsInteractor: AnalyticsBusinessLogic, AnalyticsDataStore {
     var history: [Expenses]?
     
     func showInformation(request: AnalyticsInfo.ShowInfo.Request) {
-        let history = worker.getHistory()
-        self.history = history
+//        let history = worker.getHistory()
+//        self.history = history
+        let history = self.history ?? [ ]
         let response = AnalyticsInfo.ShowInfo.Response(history: history)
         presenter?.presentData(response: response)
     }

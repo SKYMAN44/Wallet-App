@@ -10,14 +10,27 @@ import UIKit
 class StatGraphicsCollectionReusableView: UICollectionReusableView {
     static let reuseIdentifier = "StatGraphicsCollectionReusableView"
     
+    private let tempItems = [Item(percent: 0.4, color: .cyan), Item(percent: 0.3, color: .yellow), Item(percent: 0.2, color: .green)]
     private let pieChart: PieChart
     private let stackedBar: StackedBarView
+    private let spendingsLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
+        label.text = "$ 1245"
+        
+        return label
+    }()
+    
     private var heightConstraint: NSLayoutConstraint?
-    private let tempItems = [Item(percent: 0.4, color: .cyan), Item(percent: 0.3, color: .orange), Item(percent: 0.2, color: .green)]
+    private var barTopConstraintToSuperView: NSLayoutConstraint?
+    private var barTopConstraintToLabel: NSLayoutConstraint?
+    private var isAnimating: Bool = false
+    private var isCompact: Bool = false
     
     // MARK: - Init
     override init(frame: CGRect) {
-        pieChart = PieChart(frame: frame, items: tempItems)
+        pieChart = PieChart(frame: .zero, items: tempItems)
         stackedBar = StackedBarView(frame: .zero, items: tempItems)
         super.init(frame: frame)
         
@@ -32,26 +45,55 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     private func setupView() {
         addSubview(pieChart)
         addSubview(stackedBar)
+        addSubview(spendingsLabel)
         
-        stackedBar.pin(to: self, [.left: 0, .right: 0, .top: 20, .bottom: 20])
-        stackedBar.isHidden = true
+        spendingsLabel.pin(to: self, [.bottom: 10, .right: 0, .left: 0])
         
-        pieChart.pin(to: self)
+        barTopConstraintToSuperView = stackedBar.pinTop(to: self.topAnchor, 230)
+        
+        stackedBar.pin(to: self, [.left: 0, .right: 0, .bottom: 50])
+        stackedBar.setHeight(to: 20)
+        stackedBar.alpha = 0
+        
+        pieChart.pin(to: self, [.left: 0 , .right: 0, .top: 20])
+        pieChart.setHeight(to: 250)
+        
         heightConstraint = self.setHeight(to: 300)
     }
     
-    public func changeStyle(_ toCompact: Bool) {
-        if toCompact {
-            self.heightConstraint?.constant = 60
-            UIView.animate(withDuration: 0.3) {
-                self.pieChart.isHidden = true
-                self.stackedBar.isHidden = false
-                self.stackedBar.setNeedsDisplay()
+    public func changeStyle(_ toCompact: Bool, updateCollectionView: () -> ()) {
+        guard !isAnimating else { return }
+        
+        if toCompact && !isCompact {
+            isAnimating = true
+            self.heightConstraint?.constant = 90
+            updateCollectionView()
+            UIView.animate(withDuration: 0.1,delay: 0.05, animations: {
+                self.pieChart.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                self.heightConstraint?.constant = 90
+                self.pieChart.alpha = 0
+                self.stackedBar.alpha = 1
+                self.barTopConstraintToSuperView?.constant = 20
+                self.spendingsLabel.textAlignment = .right
+            }) { _ in
+                self.isAnimating = false
+                self.isCompact = true
             }
-        } else {
+        } else if !toCompact && isCompact {
+            isAnimating = true
             self.heightConstraint?.constant = 300
-            self.pieChart.isHidden = false
-            self.stackedBar.isHidden = true
+            updateCollectionView()
+            UIView.animate(withDuration: 0.1, delay: 0.05, animations: {
+                self.pieChart.transform = .identity
+                self.pieChart.alpha = 1
+                self.stackedBar.alpha = 0
+                self.barTopConstraintToSuperView?.constant = 260
+                
+                self.spendingsLabel.textAlignment = .center
+            }) { _ in
+                self.isAnimating = false
+                self.isCompact = false
+            }
         }
     }
     

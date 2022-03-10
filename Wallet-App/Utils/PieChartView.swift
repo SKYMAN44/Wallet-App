@@ -14,10 +14,10 @@ struct Item {
 }
 
 class PieChart: UIView {
-    let path = UIBezierPath()
+    private let path = UIBezierPath()
     private var items = [Item]()
     private var arcs = [UIBezierPath]()
-    let maskLayer = CAShapeLayer()
+    private let maskLayer = CAShapeLayer()
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -40,10 +40,17 @@ class PieChart: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.layer.addSublayer(maskLayer)
+        maskLayer.fillColor = UIColor.clear.cgColor
+    }
+    
     private func validateItems(items: inout [Item]) {
         let sum = items.reduce(0) { $0 + $1.percent }
         if sum < 1 {
-            items.append(Item(percent: 1 - sum, color: .gray))
+            items.append(Item(percent: 1 - sum, color: .systemGray6))
         } else if sum > 1 {
             items.removeLast()
             validateItems(items: &items)
@@ -61,7 +68,6 @@ class PieChart: UIView {
         }
     }
     
-    // MARK: - Draw
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -71,17 +77,16 @@ class PieChart: UIView {
     private func drawPieChart() {
         maskLayer.removeFromSuperlayer()
         arcs.removeAll()
+        
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         var startAngle: CGFloat = 3 * .pi / 4
-        
+        print(bounds.height)
         for item in items {
             let endAngle = (startAngle + CGFloat((2 * .pi) * item.percent))
             drawSegment(startAngle: startAngle, endAngle: endAngle, center: center, color: item.color)
             startAngle = endAngle
         }
         maskLayer.path = path.cgPath
-        maskLayer.fillColor = UIColor.clear.cgColor
-        self.layer.addSublayer(maskLayer)
     }
     
     private func drawSegment(

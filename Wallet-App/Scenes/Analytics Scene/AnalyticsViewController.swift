@@ -45,7 +45,18 @@ final class AnalyticsViewController: UIViewController {
     
     private var dataSource: DataSource?
     private var displayedHistory = [AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory]()
-    var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
+    private var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
+    var router: (AnalyticsRouterLogic & AnalyticsViewDataPassing)?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -56,7 +67,6 @@ final class AnalyticsViewController: UIViewController {
         self.navigationController?.navigationBar.backItem?.title = ""
         self.view.backgroundColor = .white
         
-        setup()
         setupView()
         fetchData()
     }
@@ -70,9 +80,13 @@ final class AnalyticsViewController: UIViewController {
     private func setup() {
         let interactor = AnalyticsInteractor()
         let presenter = AnalyticsPresenter()
-        self.interactor = interactor
+        let router = AnalyticsRouter()
+        router.controller = self
+        router.dataStore = interactor
         interactor.presenter = presenter
         presenter.viewController = self
+        self.interactor = interactor
+        self.router = router
     }
     
     private func fetchData() {
@@ -120,16 +134,27 @@ final class AnalyticsViewController: UIViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
                 section.boundarySupplementaryItems = [graphItem]
                 
+                // animating height change in supplementary view
                 section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, point, environment) in
+                    // checking for non-nil object
                     guard let graph = self?.collectionView.supplementaryView(
                         forElementKind: SupplementaryViewKind.graph,
                         at: IndexPath(row: 0, section: 0)
                     ) as? StatGraphicsCollectionReusableView else { return }
-                    if(point.y > 20) {
-                        graph.changeStyle(true)
+                
+                    let layoutUpdate = { [weak self] in
+                        if let snapshot = self?.dataSource?.snapshot() {
+                            DispatchQueue.main.async {
+                                self?.dataSource?.apply(snapshot)
+                            }
+                        }
                     }
-                    if(point.y < -20) {
-                        graph.changeStyle(false)
+                    
+                    if(point.y > 20) {
+                        graph.changeStyle(true, updateCollectionView: layoutUpdate)
+                    }
+                    else if(point.y < -20) {
+                        graph.changeStyle(false, updateCollectionView: layoutUpdate)
                     }
                 }
                 

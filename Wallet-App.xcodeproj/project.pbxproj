@@ -49,6 +49,8 @@
 		636C7D2627D57191008950F7 /* StackedBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2527D57191008950F7 /* StackedBarView.swift */; };
 		636C7D2827D6580F008950F7 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2727D6580E008950F7 /* FileService.swift */; };
 		636C7D2A27D6AB48008950F7 /* PersistanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */; };
+		636C7D2C27D7C4AE008950F7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2B27D7C4AE008950F7 /* CoreDataService.swift */; };
+		636C7D3027D97551008950F7 /* SegmentCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		636C7D2527D57191008950F7 /* StackedBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackedBarView.swift; sourceTree = "<group>"; };
 		636C7D2727D6580E008950F7 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStorage.swift; sourceTree = "<group>"; };
+		636C7D2B27D7C4AE008950F7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,10 +234,10 @@
 				636C7D1B27D2437E008950F7 /* View */,
 				636C7D1327D242DB008950F7 /* AnalyticsPresenter.swift */,
 				636C7D1527D242E8008950F7 /* AnalyticsWorker.swift */,
+				636C7D1927D24312008950F7 /* AnalyticsRouter.swift */,
 				636C7D1727D242F5008950F7 /* AnalyticsModels.swift */,
 				636C7D0F27CE7FB9008950F7 /* AnalyticsViewController.swift */,
 				636C7D1127D242CE008950F7 /* AnalyticsInteractor.swift */,
-				636C7D1927D24312008950F7 /* AnalyticsRouter.swift */,
 			);
 			path = "Analytics Scene";
 			sourceTree = "<group>";
@@ -281,6 +285,7 @@
 			children = (
 				636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */,
 				636C7D2727D6580E008950F7 /* FileService.swift */,
+				636C7D2B27D7C4AE008950F7 /* CoreDataService.swift */,
 				636C7CF627CAE312008950F7 /* DBService.swift */,
 			);
 			path = Service;
@@ -336,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				636C7D2127D4159D008950F7 /* StatGraphicsCollectionReusableView.swift */,
+				636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636C7D2C27D7C4AE008950F7 /* CoreDataService.swift in Sources */,
 				636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */,
 				636C7CE827CAD4E4008950F7 /* History.swift in Sources */,
 				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
@@ -497,6 +504,7 @@
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
 				636C7D1227D242CE008950F7 /* AnalyticsInteractor.swift in Sources */,
 				636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */,
+				636C7D3027D97551008950F7 /* SegmentCollectionReusableView.swift in Sources */,
 				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,
 				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,

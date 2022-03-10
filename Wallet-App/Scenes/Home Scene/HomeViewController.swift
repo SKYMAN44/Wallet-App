@@ -87,7 +87,7 @@ final class HomeViewController: UIViewController {
     private var displayedContacts = [HomeInfo.ShowInfo.ViewModel.DisplayedContact]()
     private var displayedHistory = [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]()
     private var interactor: (HomeBusinessLogic & HomeDataStore)?
-    private var router: HomeRouterLogic?
+    var router: (HomeRouterLogic & HomeViewDataPassing)?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -111,6 +111,8 @@ final class HomeViewController: UIViewController {
         
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.setNeedsDisplay()
+        guard let height = navigationController?.navigationBar.frame.height else { return }
+        moveAndResizeButton(for: height)
         showButton(true)
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -128,6 +130,7 @@ final class HomeViewController: UIViewController {
         self.interactor = interactor
         self.router = router
         router.controller = self
+        router.dataStore = interactor
         interactor.presenter = presenter
         presenter.viewController = self
     }
