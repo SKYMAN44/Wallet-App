@@ -313,7 +313,7 @@ extension HomeViewController {
         
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath -> UICollectionReusableView? in
             switch kind {
-            case "HeaderContact":
+            case SupplementaryViewKind.contact:
                 let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: SupplementaryViewKind.contact,
                     withReuseIdentifier: ContactHeaderCollectionReusableView.reuseIdentifier,
@@ -321,7 +321,7 @@ extension HomeViewController {
                 ) as! ContactHeaderCollectionReusableView
                 
                 return headerView
-            case "HeaderHistory":
+            case SupplementaryViewKind.history:
                 let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: SupplementaryViewKind.history,
                     withReuseIdentifier: HistoryCollectionReusableView.reuseIdentifier,

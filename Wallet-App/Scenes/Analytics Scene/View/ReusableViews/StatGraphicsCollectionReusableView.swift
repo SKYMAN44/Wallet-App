@@ -42,6 +42,7 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI setup
     private func setupView() {
         addSubview(pieChart)
         addSubview(stackedBar)
@@ -61,14 +62,15 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         heightConstraint = self.setHeight(to: 300)
     }
     
+    
+    // MARK: - API
     public func changeStyle(_ toCompact: Bool, updateCollectionView: () -> ()) {
         guard !isAnimating else { return }
         
         if toCompact && !isCompact {
             isAnimating = true
             self.heightConstraint?.constant = 90
-            updateCollectionView()
-            UIView.animate(withDuration: 0.1,delay: 0.05, animations: {
+            UIView.animate(withDuration: 0.25,delay: 0.05, animations: {
                 self.pieChart.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 self.heightConstraint?.constant = 90
                 self.pieChart.alpha = 0
@@ -79,11 +81,11 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
                 self.isAnimating = false
                 self.isCompact = true
             }
+            updateCollectionView()
         } else if !toCompact && isCompact {
             isAnimating = true
             self.heightConstraint?.constant = 300
-            updateCollectionView()
-            UIView.animate(withDuration: 0.1, delay: 0.05, animations: {
+            UIView.animate(withDuration: 0.25, delay: 0.05, animations: {
                 self.pieChart.transform = .identity
                 self.pieChart.alpha = 1
                 self.stackedBar.alpha = 0
@@ -94,6 +96,7 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
                 self.isAnimating = false
                 self.isCompact = false
             }
+            updateCollectionView()
         }
     }
     

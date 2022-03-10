@@ -51,6 +51,8 @@
 		636C7D2A27D6AB48008950F7 /* PersistanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */; };
 		636C7D2C27D7C4AE008950F7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2B27D7C4AE008950F7 /* CoreDataService.swift */; };
 		636C7D3027D97551008950F7 /* SegmentCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */; };
+		636C7D3327DA3FE6008950F7 /* AnalyticsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D3227DA3FE6008950F7 /* AnalyticsPresenterTest.swift */; };
+		636C7D3627DA4143008950F7 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D3527DA4143008950F7 /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		636C7D2927D6AB48008950F7 /* PersistanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceStorage.swift; sourceTree = "<group>"; };
 		636C7D2B27D7C4AE008950F7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCollectionReusableView.swift; sourceTree = "<group>"; };
+		636C7D3227DA3FE6008950F7 /* AnalyticsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPresenterTest.swift; sourceTree = "<group>"; };
+		636C7D3527DA4143008950F7 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,8 @@
 		636C7CBA27CA9B4F008950F7 /* Wallet-AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				636C7D3427DA412A008950F7 /* Test Data */,
+				636C7D3127DA3F81008950F7 /* Analytics Scene */,
 				636C7CBB27CA9B4F008950F7 /* Wallet_AppTests.swift */,
 			);
 			path = "Wallet-AppTests";
@@ -344,6 +350,22 @@
 				636C7D2F27D97551008950F7 /* SegmentCollectionReusableView.swift */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		636C7D3127DA3F81008950F7 /* Analytics Scene */ = {
+			isa = PBXGroup;
+			children = (
+				636C7D3227DA3FE6008950F7 /* AnalyticsPresenterTest.swift */,
+			);
+			path = "Analytics Scene";
+			sourceTree = "<group>";
+		};
+		636C7D3427DA412A008950F7 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				636C7D3527DA4143008950F7 /* TestData.swift */,
+			);
+			path = "Test Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,7 +544,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636C7D3627DA4143008950F7 /* TestData.swift in Sources */,
 				636C7CBC27CA9B4F008950F7 /* Wallet_AppTests.swift in Sources */,
+				636C7D3327DA3FE6008950F7 /* AnalyticsPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
