@@ -7,15 +7,6 @@
 
 import Foundation
 
-
-protocol AnalyticsBusinessLogic {
-    func showInformation(request: AnalyticsInfo.ShowInfo.Request)
-}
-
-protocol AnalyticsDataStore {
-    var history: [Expenses]? { get set }
-}
-
 final class AnalyticsInteractor: AnalyticsBusinessLogic, AnalyticsDataStore {
     var presenter: AnalyticsPresentationLogic?
     var worker = AnalyticsWorker(service: FileService())

@@ -12,12 +12,11 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         tabBar.isTranslucent = true
         tabBar.tintColor = .black
         tabBar.backgroundColor = .systemBackground
         
-        let homeVC = HomeViewController()
+        let homeVC = HomeScene.build()
         let historyVC = HistoryViewController()
         
         let navHomeVC = UINavigationController(rootViewController: homeVC)

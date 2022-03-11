@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AnalyticsDisplayLogic: AnyObject {
-    func displayContent(viewModel: AnalyticsInfo.ShowInfo.ViewModel)
-}
-
 final class AnalyticsViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     
@@ -45,18 +41,8 @@ final class AnalyticsViewController: UIViewController {
     
     private var dataSource: DataSource?
     private var displayedHistory = [AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory]()
-    private var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
+    var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
     var router: (AnalyticsRouterLogic & AnalyticsViewDataPassing)?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -75,18 +61,6 @@ final class AnalyticsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.title = "Analytics"
-    }
-    
-    private func setup() {
-        let interactor = AnalyticsInteractor()
-        let presenter = AnalyticsPresenter()
-        let router = AnalyticsRouter()
-        router.controller = self
-        router.dataStore = interactor
-        interactor.presenter = presenter
-        presenter.viewController = self
-        self.interactor = interactor
-        self.router = router
     }
     
     private func fetchData() {
@@ -171,7 +145,12 @@ final class AnalyticsViewController: UIViewController {
             case .history:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HistoryCollectionViewCell.reuseIdentifier, for: indexPath) as? HistoryCollectionViewCell
                 let itemY = item as! AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory
-                let newItem = HomeInfo.ShowInfo.ViewModel.DisplayedHistory(recieverName: itemY.recieverName, date: itemY.date, image: itemY.image, amount: itemY.amount)
+                let newItem = HomeInfo.ShowInfo.ViewModel.DisplayedHistory(
+                    recieverName: itemY.recieverName,
+                    date: itemY.date,
+                    image: itemY.image,
+                    amount: itemY.amount
+                )
                 cell?.configure(expense: newItem)
                 
                 return cell

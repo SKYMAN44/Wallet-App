@@ -31,7 +31,7 @@ class HistoryCollectionReusableView: UICollectionReusableView {
         return button
     }()
     
-    public var transitionClosure: ( () -> Void )?
+    public var transitionClosure: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +39,7 @@ class HistoryCollectionReusableView: UICollectionReusableView {
         setupView()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

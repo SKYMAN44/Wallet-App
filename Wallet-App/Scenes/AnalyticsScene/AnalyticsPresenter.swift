@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol AnalyticsPresentationLogic {
-    func presentData(response: AnalyticsInfo.ShowInfo.Response)
-}
-
 final class AnalyticsPresenter: AnalyticsPresentationLogic {
     weak var viewController: AnalyticsDisplayLogic?
     

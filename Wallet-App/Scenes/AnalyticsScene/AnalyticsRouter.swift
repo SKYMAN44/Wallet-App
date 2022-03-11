@@ -7,16 +7,8 @@
 
 import Foundation
 
-protocol AnalyticsRouterLogic {
-    func routeToHome()
-}
-
-protocol AnalyticsViewDataPassing {
-    var dataStore: AnalyticsDataStore? { get }
-}
-
 final class AnalyticsRouter: AnalyticsRouterLogic, AnalyticsViewDataPassing {
-    weak var controller: AnalyticsViewController?
+    weak var viewController: AnalyticsViewController?
     var dataStore: AnalyticsDataStore?
     
     func routeToHome() {

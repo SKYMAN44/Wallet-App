@@ -21,6 +21,10 @@ enum HomeInfo {
         }
         
         struct ViewModel {
+            var displayedCards: [DisplayedCard]
+            var displayedContact: [DisplayedContact]
+            var displayedHistory: [DisplayedHistory]
+            
             struct DisplayedCard: Hashable {
                 let type: String
                 let edningNumbers: String
@@ -38,14 +42,6 @@ enum HomeInfo {
                 let image: String
                 let amount: String
             }
-            
-            var displayedCards: [DisplayedCard]
-            var displayedContact: [DisplayedContact]
-            var displayedHistory: [DisplayedHistory]
         }
-    }
-    
-    enum AddContact {
-        
     }
 }

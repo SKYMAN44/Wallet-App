@@ -9,6 +9,7 @@ import Foundation
 
 // protocol for persistance storage services i.e Core Data, FileSystem, UserDefaults
 protocol PersistanceStorage {
+    // change to Data, code encode in worker
     func saveData<StoreItem: Codable>(data: [StoreItem], path: String)
     func loadData<StoreItem: Codable>(path: String) -> [StoreItem]?
 }

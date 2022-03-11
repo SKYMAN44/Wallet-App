@@ -9,6 +9,11 @@ import Foundation
 
 
 final class HomeWorker {
+//    enum Const {
+//        static let cards = "Cards"
+//        static let
+//    }
+    
     private var storageService: PersistanceStorage
     
     init(service: PersistanceStorage) {

@@ -7,23 +7,17 @@
 
 import Foundation
 
-protocol HomeBusinessLogic {
-    func showInformation(request: HomeInfo.ShowInfo.Request)
-}
-
-protocol HomeDataStore: AnyObject {
-    var cards: [Card]? { get }
-    var contacts: [Contact]? { get }
-    var history: [Expenses]? { get }
-}
-
-final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
+final class HomeInteractor: HomeDataStore {
     var presenter: HomePresentationLogic?
     var worker = HomeWorker(service: FileService())
+    
+    //MARK: - HomeDataStore
     var cards: [Card]?
     var contacts: [Contact]?
     var history: [Expenses]?
-    
+}
+
+extension HomeInteractor: HomeBusinessLogic {
     func showInformation(request: HomeInfo.ShowInfo.Request) {
         let cards = worker.getCards()
         let contacts = worker.getContacts()

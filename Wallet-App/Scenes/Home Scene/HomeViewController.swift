@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol HomeSceneDisplayLogic: AnyObject {
-    func displayContent(viewModel: HomeInfo.ShowInfo.ViewModel)
-}
-
 final class HomeViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     
@@ -55,7 +51,7 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: generateLayout())
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell.reuseIdentifier)
         collectionView.register(ContactCollectionViewCell.self, forCellWithReuseIdentifier: ContactCollectionViewCell.reuseIdentifier)
@@ -86,8 +82,9 @@ final class HomeViewController: UIViewController {
     private var displayedCards = [HomeInfo.ShowInfo.ViewModel.DisplayedCard]()
     private var displayedContacts = [HomeInfo.ShowInfo.ViewModel.DisplayedContact]()
     private var displayedHistory = [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]()
-    private var interactor: (HomeBusinessLogic & HomeDataStore)?
-    var router: (HomeRouterLogic & HomeViewDataPassing)?
+    // в typealise все в протокол
+    var interactor: (HomeBusinessLogic & HomeDataStore)?
+    var router: HomeRouterLogic?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -95,7 +92,6 @@ final class HomeViewController: UIViewController {
         
         self.view.backgroundColor = .white
         setupNavBar()
-        setup()
         setupCollection()
         fetchData()
     }
@@ -121,18 +117,6 @@ final class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         showButton(false)
-    }
-    
-    private func setup() {
-        let interactor = HomeInteractor()
-        let presenter = HomePresenter()
-        let router = HomeRouter()
-        self.interactor = interactor
-        self.router = router
-        router.controller = self
-        router.dataStore = interactor
-        interactor.presenter = presenter
-        presenter.viewController = self
     }
     
     private func fetchData() {
@@ -354,6 +338,7 @@ extension HomeViewController: HomeSceneDisplayLogic {
         self.displayedCards = viewModel.displayedCards
         self.displayedContacts = viewModel.displayedContact
         self.displayedHistory = viewModel.displayedHistory
+        // не хранить сразу в конфигер датасорс
         // addContact Button
         self.displayedContacts.insert(HomeInfo.ShowInfo.ViewModel.DisplayedContact(id: 0, imageURL: ""), at: 0)
         configureDataSource()
