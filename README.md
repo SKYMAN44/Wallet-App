@@ -11,8 +11,9 @@ Dmitrii Sokolov
 - Xcode 13.0+
 - Swift 5.0+
 
-## Architecture
+## Description
 Project purpose is to demonstrate usage of CleanSwift Architecture 
+Also usage of IOS FileSystem and CoreData (currently in proccess of adding it)
 
 ## Project Structure
 
