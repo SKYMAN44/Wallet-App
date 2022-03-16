@@ -14,9 +14,9 @@ final class AnalyticsPresenter: AnalyticsPresentationLogic {
         let mappedH = response.history.map {
             AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory(
                 recieverName: $0.recieverName,
-                date: $0.date,
+                date: $0.date.format(),
                 image: "purpleGradient.jpg",
-                amount: "- $" + $0.amount
+                amount: "- $" + "\($0.amount)"
             )
         }
         let viewModel = AnalyticsInfo.ShowInfo.ViewModel(displayedHistory: mappedH)

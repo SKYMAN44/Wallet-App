@@ -9,10 +9,11 @@ import Foundation
 
 
 final class HomeWorker {
-//    enum Const {
-//        static let cards = "Cards"
-//        static let
-//    }
+    enum Const {
+        static let cards = "Cards"
+        static let contacts = "Contacts"
+        static let expenses = "Expenses"
+    }
     
     private var storageService: PersistanceStorage
     
@@ -24,18 +25,28 @@ final class HomeWorker {
         storageService = service
     }
     
-    public func getCards() -> [Card] {
-        var cards: [Card]?
-        cards = storageService.loadData(path: "Cards")
-        if let cards = cards {
-            return cards
+//    public func getCards() -> [Cards] {
+//        var cards: [Cards]?
+//        cards = storageService.loadData(path: Const.cards)
+//        if let cards = cards {
+//            return cards
+//        }
+//        return []
+//    }
+    
+    public func getCards(completion: @escaping ([Cards]) -> Void) {
+        var resultCards = [Cards]()
+        CoreDataManager.shared.fetchCardsInfo { (cards) in
+            for card in cards {
+                resultCards.append(Cards(type: card.type!, balance: card.balance, cardNumber: card.cardNumber!))
+            }
+            completion(resultCards)
         }
-        return []
     }
     
-    public func getContacts() -> [Contact] {
-        var contacts: [Contact]?
-        contacts = storageService.loadData(path: "Contacts")
+    public func getContacts() -> [Contacts] {
+        var contacts: [Contacts]?
+        contacts = storageService.loadData(path: Const.contacts)
         if let contacts = contacts {
             return contacts
         }
@@ -44,7 +55,7 @@ final class HomeWorker {
     
     public func getHistory() -> [Expenses] {
         var expenses: [Expenses]?
-        expenses = storageService.loadData(path: "Expenses")
+        expenses = storageService.loadData(path: Const.expenses)
         if let expenses = expenses {
             return expenses
         }

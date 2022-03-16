@@ -1,0 +1,97 @@
+//
+//  CoreDataManager.swift
+//  Wallet-App
+//
+//  Created by Дмитрий Соколов on 15.03.2022.
+//
+
+import Foundation
+import UIKit
+
+final class CoreDataManager {
+    static let shared = CoreDataManager()
+    
+    let persistanceContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    let service = CoreDataService()
+    
+    public func fetchCardsInfo(completion: @escaping ([Card]) -> Void) {
+        guard let container = persistanceContainer else { return }
+        let descriptor = NSSortDescriptor(key: "balance", ascending: false)
+        service.fetch(
+            type: Card.self,
+            sortDescriptors: [descriptor],
+            relationshipKeysToFetch: nil,
+            managedObjectContext: container.viewContext
+        ) { (response) in
+            switch response {
+            case .success(let cards):
+                completion(cards)
+            case .failure(let error):
+                print(error)
+                completion([])
+            }
+        }
+    }
+    
+    public func fetchContacts(completion: @escaping ([Contact]) -> Void) {
+        guard let container = persistanceContainer else { return }
+        let descriptor = NSSortDescriptor(key: "id", ascending: true)
+        service.fetch(
+            type: Contact.self,
+            sortDescriptors: [descriptor],
+            relationshipKeysToFetch: nil,
+            managedObjectContext: container.viewContext
+        ) { (response) in
+            switch response {
+            case .success(let contacts):
+                completion(contacts)
+            case .failure(let error):
+                print(error)
+                completion([])
+            }
+        }
+    }
+    
+    public func fetchCardDetails() {
+        
+    }
+    
+    public func saveCardsInfo(cards: [Cards]) {
+        guard let container = persistanceContainer else { return }
+        
+        let context = container.newBackgroundContext()
+        for card in cards {
+            let cardCD = Card(context: context)
+            cardCD.type = card.type
+            cardCD.balance = card.balance
+            cardCD.cardNumber = card.cardNumber
+        }
+        
+        service.save(managedObjectContext: context) { (response) in
+            switch response {
+            case .success(_):
+                print("works")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    public func saveContacts() {
+        guard let container = persistanceContainer else { return }
+        service.save(managedObjectContext: container.newBackgroundContext() ) { (response) in
+            switch response {
+            case .success(_):
+                print("works")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
+    public func clearAll() {
+        guard let container = persistanceContainer else { return }
+        service.resetAllCoreData(persistentContainer: container)
+    }
+}

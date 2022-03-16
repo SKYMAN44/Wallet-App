@@ -9,8 +9,8 @@ import Foundation
 
 struct Expenses {
     let recieverName: String
-    let date: String
-    let amount: String
+    let date: Date
+    let amount: Double
 }
 
 extension Expenses: Codable { }

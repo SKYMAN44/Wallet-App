@@ -17,7 +17,7 @@ final class HomePresenter: HomePresentationLogic {
             HomeInfo.ShowInfo.ViewModel.DisplayedCard(
                 type: $0.type,
                 edningNumbers: "**" + $0.cardNumber.suffix(4),
-                balance: "$ " + $0.balance
+                balance: "$ " + "\($0.balance)"
             )
         }
         let mappedC = response.contacts.map {
@@ -26,8 +26,8 @@ final class HomePresenter: HomePresentationLogic {
         let mappedH = response.history.map {
             HomeInfo.ShowInfo.ViewModel.DisplayedHistory(
                 recieverName: $0.recieverName,
-                date: $0.date, image: "purpleGradient.jpg",
-                amount: "- $" + $0.amount
+                date: $0.date.format(), image: "purpleGradient.jpg",
+                amount: "- $" + "\($0.amount)"
             )
         }
         let viewModel = HomeInfo.ShowInfo.ViewModel(displayedCards: mapped, displayedContact: mappedC, displayedHistory: mappedH)

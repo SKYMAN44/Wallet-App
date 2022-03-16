@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Contact {
+struct Contacts {
     let id: Int
     let imageURL: String
 }
 
-extension Contact: Codable { }
+extension Contacts: Codable { }

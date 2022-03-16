@@ -15,8 +15,8 @@ enum HomeInfo {
         }
         
         struct Response {
-            var cards: [Card]
-            var contacts: [Contact]
+            var cards: [Cards]
+            var contacts: [Contacts]
             var history: [Expenses]
         }
         

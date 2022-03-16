@@ -12,20 +12,43 @@ final class HomeInteractor: HomeDataStore {
     var worker = HomeWorker(service: FileService())
     
     //MARK: - HomeDataStore
-    var cards: [Card]?
-    var contacts: [Contact]?
-    var history: [Expenses]?
+    var cards = [Cards]() {
+        didSet {
+            callPresenter()
+        }
+    }
+    var contacts = [Contacts]() {
+        didSet {
+            callPresenter()
+        }
+    }
+    var history = [Expenses]() {
+        didSet {
+            callPresenter()
+        }
+    }
 }
 
 extension HomeInteractor: HomeBusinessLogic {
     func showInformation(request: HomeInfo.ShowInfo.Request) {
-        let cards = worker.getCards()
-        let contacts = worker.getContacts()
-        let history = worker.getHistory()
-        self.cards = cards
+        self.worker.getCards { (cards) in
+            self.cards = cards
+        }
+        let contacts = self.worker.getContacts()
+        let history = self.worker.getHistory()
+        
         self.contacts = contacts
         self.history = history
-        let response = HomeInfo.ShowInfo.Response(cards: cards, contacts: contacts, history: history)
-        presenter?.presentData(response: response)
+    }
+    
+    private func callPresenter() {
+        let response = HomeInfo.ShowInfo.Response(
+            cards: self.cards,
+            contacts: self.contacts,
+            history: self.history
+        )
+        DispatchQueue.main.async { [weak self] in
+            self?.presenter?.presentData(response: response)
+        }
     }
 }

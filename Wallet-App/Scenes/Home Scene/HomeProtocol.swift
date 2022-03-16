@@ -33,7 +33,7 @@ protocol HomeBusinessLogic {
 
 protocol HomeDataStore: AnyObject {
     // в респонс переделать
-    var cards: [Card]? { get }
-    var contacts: [Contact]? { get }
-    var history: [Expenses]? { get }
+    var cards: [Cards] { get }
+    var contacts: [Contacts] { get }
+    var history: [Expenses] { get }
 }

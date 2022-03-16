@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Card {
+struct Cards {
     let type: String
-    let balance: String
+    let balance: Double
     let cardNumber: String
 }
 
-extension Card: Codable { }
+extension Cards: Codable { }
