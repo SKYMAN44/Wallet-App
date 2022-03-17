@@ -11,7 +11,7 @@ import Foundation
 enum HomeInfo {
     enum ShowInfo {
         struct Request {
-            // add historyForWhichCard
+            let cardIndex: Int?
         }
         
         struct Response {
