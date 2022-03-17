@@ -82,6 +82,7 @@ final class HomeViewController: UIViewController {
     private var displayedCards = [HomeInfo.ShowInfo.ViewModel.DisplayedCard]()
     private var displayedContacts = [HomeInfo.ShowInfo.ViewModel.DisplayedContact]()
     private var displayedHistory = [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]()
+    private var currentCardIndex = 0
     // в typealise все в протокол
     var interactor: (HomeBusinessLogic & HomeDataStore)?
     var router: HomeRouterLogic?
@@ -93,6 +94,7 @@ final class HomeViewController: UIViewController {
         self.view.backgroundColor = .white
         setupNavBar()
         setupCollection()
+        configureDataSource()
         fetchData()
     }
     
@@ -120,7 +122,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func fetchData() {
-        let request = HomeInfo.ShowInfo.Request()
+        let request = HomeInfo.ShowInfo.Request(cardIndex: nil)
         interactor?.showInformation(request: request)
     }
     
@@ -217,8 +219,14 @@ final class HomeViewController: UIViewController {
                     visibleItems.forEach { item in
                         guard let cell = self?.collectionView.cellForItem(at: item.indexPath) as? CardCollectionViewCell
                         else { return }
+                        
                         if(cell.frame.minX <= centerX && cell.frame.maxX >= centerX) {
                             cell.transformToLarge()
+                            let cardIndex = item.indexPath.row
+                            if(self?.currentCardIndex != cardIndex) {
+                                self?.currentCardIndex = cardIndex
+                                self?.interactor?.showCardHistory(request: HomeInfo.ShowInfo.Request(cardIndex: cardIndex))
+                            }
                         } else {
                             cell.transformBack()
                         }
@@ -330,6 +338,38 @@ extension HomeViewController {
         sections = snapshot.sectionIdentifiers
         dataSource?.apply(snapshot)
     }
+    
+    func updateDataSource() {
+        var snapshot = dataSource?.snapshot()
+        
+        let historyItems = snapshot?.itemIdentifiers(inSection: .history) as? [HomeInfo.ShowInfo.ViewModel.DisplayedHistory]
+        let cardItems = snapshot?.itemIdentifiers(inSection: .cards) as? [HomeInfo.ShowInfo.ViewModel.DisplayedCard]
+        let contactItems = snapshot?.itemIdentifiers(inSection: .contacts) as? [HomeInfo.ShowInfo.ViewModel.DisplayedContact]
+        
+        if(cardItems != self.displayedCards) {
+            if let items = cardItems {
+                snapshot?.deleteItems(items)
+            }
+            snapshot?.appendItems(self.displayedCards, toSection: .cards)
+        }
+        if(contactItems != self.displayedContacts) {
+            if let items = contactItems {
+                snapshot?.deleteItems(items)
+            }
+            snapshot?.appendItems(self.displayedContacts, toSection: .contacts)
+        }
+        if(historyItems != self.displayedHistory) {
+            if let items = historyItems {
+                snapshot?.deleteItems(items)
+            }
+            snapshot?.appendItems(self.displayedHistory, toSection: .history)
+        }
+        
+        if let newSnapshot = snapshot {
+            dataSource?.apply(newSnapshot)
+        }
+    }
+    
 }
 
 // MARK: - HomeDisplayLogic
@@ -341,7 +381,7 @@ extension HomeViewController: HomeSceneDisplayLogic {
         // не хранить сразу в конфигер датасорс
         // addContact Button
         self.displayedContacts.insert(HomeInfo.ShowInfo.ViewModel.DisplayedContact(id: 0, imageURL: ""), at: 0)
-        configureDataSource()
+        updateDataSource()
     }
 }
 

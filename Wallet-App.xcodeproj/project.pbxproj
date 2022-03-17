@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		63466FE827DFC09B0080B2EF /* Wallet-App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63466FE627DFC09B0080B2EF /* Wallet-App.xcdatamodeld */; };
-		63466FEF27DFC1EC0080B2EF /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FE927DFC1EC0080B2EF /* Contact+CoreDataClass.swift */; };
-		63466FF027DFC1EC0080B2EF /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FEA27DFC1EC0080B2EF /* Contact+CoreDataProperties.swift */; };
-		63466FF127DFC1EC0080B2EF /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FEB27DFC1EC0080B2EF /* Card+CoreDataClass.swift */; };
-		63466FF227DFC1EC0080B2EF /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FEC27DFC1EC0080B2EF /* Card+CoreDataProperties.swift */; };
-		63466FF327DFC1EC0080B2EF /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FED27DFC1EC0080B2EF /* Expense+CoreDataClass.swift */; };
-		63466FF427DFC1EC0080B2EF /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63466FEE27DFC1EC0080B2EF /* Expense+CoreDataProperties.swift */; };
 		6369B25627DFE1BE001F802A /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25527DFE1BE001F802A /* CoreDataService.swift */; };
 		6369B25827DFF952001F802A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25727DFF952001F802A /* CoreDataManager.swift */; };
 		6369B25C27E0070C001F802A /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25B27E0070C001F802A /* Date+Format.swift */; };
+		6369B26327E3D9AE001F802A /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25D27E3D9AE001F802A /* Card+CoreDataClass.swift */; };
+		6369B26427E3D9AE001F802A /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25E27E3D9AE001F802A /* Card+CoreDataProperties.swift */; };
+		6369B26527E3D9AE001F802A /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B25F27E3D9AE001F802A /* Expense+CoreDataClass.swift */; };
+		6369B26627E3D9AE001F802A /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B26027E3D9AE001F802A /* Expense+CoreDataProperties.swift */; };
+		6369B26727E3D9AE001F802A /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B26127E3D9AE001F802A /* Contact+CoreDataClass.swift */; };
+		6369B26827E3D9AE001F802A /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6369B26227E3D9AE001F802A /* Contact+CoreDataProperties.swift */; };
 		636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA427CA9B4B008950F7 /* AppDelegate.swift */; };
 		636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */; };
 		636C7CAE27CA9B4F008950F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636C7CAD27CA9B4F008950F7 /* Assets.xcassets */; };
@@ -86,15 +86,15 @@
 
 /* Begin PBXFileReference section */
 		63466FE727DFC09B0080B2EF /* Wallet-App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Wallet-App.xcdatamodel"; sourceTree = "<group>"; };
-		63466FE927DFC1EC0080B2EF /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
-		63466FEA27DFC1EC0080B2EF /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		63466FEB27DFC1EC0080B2EF /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
-		63466FEC27DFC1EC0080B2EF /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		63466FED27DFC1EC0080B2EF /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
-		63466FEE27DFC1EC0080B2EF /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6369B25527DFE1BE001F802A /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		6369B25727DFF952001F802A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6369B25B27E0070C001F802A /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
+		6369B25D27E3D9AE001F802A /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6369B25E27E3D9AE001F802A /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6369B25F27E3D9AE001F802A /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6369B26027E3D9AE001F802A /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6369B26127E3D9AE001F802A /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6369B26227E3D9AE001F802A /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		636C7CA127CA9B4B008950F7 /* Wallet-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallet-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		636C7CA427CA9B4B008950F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636C7CA627CA9B4B008950F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,12 +178,12 @@
 		63466FF527DFC1F20080B2EF /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				63466FE927DFC1EC0080B2EF /* Contact+CoreDataClass.swift */,
-				63466FEA27DFC1EC0080B2EF /* Contact+CoreDataProperties.swift */,
-				63466FEB27DFC1EC0080B2EF /* Card+CoreDataClass.swift */,
-				63466FEC27DFC1EC0080B2EF /* Card+CoreDataProperties.swift */,
-				63466FED27DFC1EC0080B2EF /* Expense+CoreDataClass.swift */,
-				63466FEE27DFC1EC0080B2EF /* Expense+CoreDataProperties.swift */,
+				6369B25D27E3D9AE001F802A /* Card+CoreDataClass.swift */,
+				6369B25E27E3D9AE001F802A /* Card+CoreDataProperties.swift */,
+				6369B25F27E3D9AE001F802A /* Expense+CoreDataClass.swift */,
+				6369B26027E3D9AE001F802A /* Expense+CoreDataProperties.swift */,
+				6369B26127E3D9AE001F802A /* Contact+CoreDataClass.swift */,
+				6369B26227E3D9AE001F802A /* Contact+CoreDataProperties.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -563,8 +563,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				636C7D3827DA5EAA008950F7 /* HomeScene.swift in Sources */,
-				63466FF327DFC1EC0080B2EF /* Expense+CoreDataClass.swift in Sources */,
 				636C7D2227D4159D008950F7 /* StatGraphicsCollectionReusableView.swift in Sources */,
+				6369B26527E3D9AE001F802A /* Expense+CoreDataClass.swift in Sources */,
 				636C7D3E27DC05FB008950F7 /* AnalyticsScene.swift in Sources */,
 				636C7CE827CAD4E4008950F7 /* History.swift in Sources */,
 				636C7CF727CAE312008950F7 /* DBService.swift in Sources */,
@@ -578,27 +578,27 @@
 				636C7D2A27D6AB48008950F7 /* PersistanceStorage.swift in Sources */,
 				636C7D1627D242E8008950F7 /* AnalyticsWorker.swift in Sources */,
 				636C7D0827CCF993008950F7 /* HistoryCollectionReusableView.swift in Sources */,
-				63466FEF27DFC1EC0080B2EF /* Contact+CoreDataClass.swift in Sources */,
 				636C7CDB27CACE3D008950F7 /* MainTabBarViewController.swift in Sources */,
 				636C7CA527CA9B4B008950F7 /* AppDelegate.swift in Sources */,
 				636C7CF227CADEF8008950F7 /* HomeModels.swift in Sources */,
 				636C7CE227CAD0BA008950F7 /* View+Pin.swift in Sources */,
-				63466FF027DFC1EC0080B2EF /* Contact+CoreDataProperties.swift in Sources */,
 				636C7D0227CC20E0008950F7 /* ScreenSize.swift in Sources */,
-				63466FF127DFC1EC0080B2EF /* Card+CoreDataClass.swift in Sources */,
 				636C7CE427CAD4C9008950F7 /* Cards.swift in Sources */,
+				6369B26327E3D9AE001F802A /* Card+CoreDataClass.swift in Sources */,
 				636C7D2627D57191008950F7 /* StackedBarView.swift in Sources */,
 				636C7D1E27D3E10E008950F7 /* PieChartView.swift in Sources */,
 				6369B25C27E0070C001F802A /* Date+Format.swift in Sources */,
-				63466FF427DFC1EC0080B2EF /* Expense+CoreDataProperties.swift in Sources */,
+				6369B26627E3D9AE001F802A /* Expense+CoreDataProperties.swift in Sources */,
 				636C7CDE27CACF40008950F7 /* HistoryViewController.swift in Sources */,
 				636C7D1227D242CE008950F7 /* AnalyticsInteractor.swift in Sources */,
 				636C7D1A27D24312008950F7 /* AnalyticsRouter.swift in Sources */,
 				636C7D3027D97551008950F7 /* SegmentCollectionReusableView.swift in Sources */,
+				6369B26827E3D9AE001F802A /* Contact+CoreDataProperties.swift in Sources */,
 				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,
 				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,
-				63466FF227DFC1EC0080B2EF /* Card+CoreDataProperties.swift in Sources */,
+				6369B26727E3D9AE001F802A /* Contact+CoreDataClass.swift in Sources */,
+				6369B26427E3D9AE001F802A /* Card+CoreDataProperties.swift in Sources */,
 				636C7D1427D242DB008950F7 /* AnalyticsPresenter.swift in Sources */,
 				636C7D3C27DC0584008950F7 /* AnalyticsProtocol.swift in Sources */,
 				636C7CD927CAC78B008950F7 /* HomeViewController.swift in Sources */,

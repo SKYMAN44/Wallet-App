@@ -33,12 +33,16 @@ extension HomeInteractor: HomeBusinessLogic {
     func showInformation(request: HomeInfo.ShowInfo.Request) {
         self.worker.getCards { (cards) in
             self.cards = cards
+            self.history = cards[0].history ?? []
         }
         let contacts = self.worker.getContacts()
-        let history = self.worker.getHistory()
-        
         self.contacts = contacts
-        self.history = history
+    }
+    
+    func showCardHistory(request: HomeInfo.ShowInfo.Request) {
+        if let index = request.cardIndex {
+            self.history = self.cards[index].history ?? []
+        }
     }
     
     private func callPresenter() {

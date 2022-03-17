@@ -11,6 +11,8 @@ struct Cards {
     let type: String
     let balance: Double
     let cardNumber: String
+    
+    let history: [Expenses]?
 }
 
 extension Cards: Codable { }

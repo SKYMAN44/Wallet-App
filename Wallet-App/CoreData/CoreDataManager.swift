@@ -65,6 +65,16 @@ final class CoreDataManager {
             cardCD.type = card.type
             cardCD.balance = card.balance
             cardCD.cardNumber = card.cardNumber
+            
+            if let cardHistory = card.history {
+                for expense in cardHistory {
+                    let expenseDB = Expense(context: context)
+                    expenseDB.date = expense.date
+                    expenseDB.amount = expense.amount
+                    expenseDB.recieverName = expense.recieverName
+                    cardCD.addToExpenses(expenseDB)
+                }
+            }
         }
         
         service.save(managedObjectContext: context) { (response) in

@@ -25,20 +25,21 @@ final class HomeWorker {
         storageService = service
     }
     
-//    public func getCards() -> [Cards] {
-//        var cards: [Cards]?
-//        cards = storageService.loadData(path: Const.cards)
-//        if let cards = cards {
-//            return cards
-//        }
-//        return []
-//    }
-    
     public func getCards(completion: @escaping ([Cards]) -> Void) {
         var resultCards = [Cards]()
         CoreDataManager.shared.fetchCardsInfo { (cards) in
             for card in cards {
-                resultCards.append(Cards(type: card.type!, balance: card.balance, cardNumber: card.cardNumber!))
+                var history: [Expenses]?
+                if let arrayOfExpensesDB = card.expenses?.allObjects as? [Expense] {
+                    history = arrayOfExpensesDB.compactMap { (expense) in
+                        if let name = expense.recieverName,
+                           let date = expense.date {
+                            return Expenses(recieverName: name, date: date, amount: expense.amount)
+                        }
+                        return nil
+                    }
+                }
+                resultCards.append(Cards(type: card.type!, balance: card.balance, cardNumber: card.cardNumber!, history: history))
             }
             completion(resultCards)
         }
@@ -61,4 +62,12 @@ final class HomeWorker {
         }
         return []
     }
+}
+
+
+extension NSSet {
+  func toArray<T>() -> [T] {
+    let array = self.map({ $0 as! T})
+    return array
+  }
 }

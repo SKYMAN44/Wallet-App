@@ -29,6 +29,7 @@ protocol HomeSceneDisplayLogic: AnyObject {
 // MARK: - Interactor
 protocol HomeBusinessLogic {
     func showInformation(request: HomeInfo.ShowInfo.Request)
+    func showCardHistory(request: HomeInfo.ShowInfo.Request)
 }
 
 protocol HomeDataStore: AnyObject {
