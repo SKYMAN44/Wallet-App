@@ -40,7 +40,7 @@ enum AnalyticsInfo {
             }
             
             struct GraphStatistics: Hashable {
-                let totalSum: String
+                let totalSum: Double
                 let sectors: [graphSegment]
             }
             

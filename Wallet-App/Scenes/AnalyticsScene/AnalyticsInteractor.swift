@@ -53,7 +53,7 @@ class DateFilters {
     static var startOfMonth: Date {
         var gregorian = Calendar(identifier: .gregorian)
         gregorian.timeZone = TimeZone(secondsFromGMT: 0)!
-        let month = gregorian.date(from: gregorian.dateComponents([.month], from: Date()))
+        let month = gregorian.date(from: gregorian.dateComponents([.month, .year], from: Date()))
         let monthStart = gregorian.startOfDay(for: month!)
         
         return monthStart

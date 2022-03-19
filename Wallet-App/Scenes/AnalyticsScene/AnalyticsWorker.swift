@@ -24,7 +24,8 @@ final class AnalyticsWorker {
     }
     
     public func filterHistory(history: [Expenses], filterDate: Date) -> [Expenses] {
-        let newHistory = history.filter({ $0.date >= filterDate })
+        var newHistory = history.filter { $0.date.compare(filterDate) == .orderedDescending }
+        newHistory.sort(by: { $0.date > $1.date })
         
         return newHistory
     }

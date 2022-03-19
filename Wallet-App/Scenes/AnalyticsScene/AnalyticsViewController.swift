@@ -83,8 +83,7 @@ final class AnalyticsViewController: UIViewController {
     private func setupCollectionView() {
         view.addSubview(collectionView)
         
-        collectionView.pin(to: view, [.left, .right])
-        collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        collectionView.pin(to: view, [.left, .right, .bottom])
         collectionView.pinTop(to: segmentController.bottomAnchor)
     }
     

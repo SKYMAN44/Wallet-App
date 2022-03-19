@@ -32,12 +32,16 @@ final class DBService {
     }
     
     public func getExpenses() -> [Expenses] {
-        let month = Int.random(in: 1...12)
-        let day = Int.random(in: 1...28)
-        let stringDate = "2022-\(3)-\(14)"
+        let month = Int.random(in: 1...3)
+        let day = Int.random(in: 1...20)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let stringDate = "2022-\(month)-\(day)"
         let date = dateFormatter.date(from: stringDate)
+        let monthStringDate = "2022-3-3"
+        let thisMonthDate = dateFormatter.date(from: monthStringDate)
         
         func generating() -> Double {
             var num = Double.random(in: 8...500)
@@ -48,9 +52,10 @@ final class DBService {
         }
         
         return [
-            Expenses(recieverName: "Apple Store", date: Date(), amount: generating(), sector: .grocery),
+            Expenses(recieverName: "Apple Store", date: Date(), amount: generating(), sector: .tech),
             Expenses(recieverName: "Creative Cloud", date: date!, amount: generating(), sector: .intelcom),
-            Expenses(recieverName: "Spar", date: date!, amount: generating(), sector: .restaurants)
+            Expenses(recieverName: "Spar", date: date!, amount: generating(), sector: .grocery),
+            Expenses(recieverName: "Yandex.Taxi", date: thisMonthDate!, amount: generating(), sector: .transport)
         ]
     }
 }

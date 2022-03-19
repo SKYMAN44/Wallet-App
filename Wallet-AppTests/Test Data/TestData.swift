@@ -10,6 +10,6 @@ import Foundation
 
 struct TestData {
     struct History {
-        static let history = Expenses(recieverName: "App Store", date: "24.01.02", amount: "123")
+        static let history = Expenses(recieverName: "App Store", date: Date(), amount: 123, sector: .tech)
     }
 }

@@ -56,9 +56,10 @@ final class AnalyticsPresenter: AnalyticsPresentationLogic {
                 )
             )
         }
+        sectors.sort { $0.sectorTitle > $1.sectorTitle}
         
         return AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics(
-            totalSum: "$ \(total)",
+            totalSum: total,
             sectors: sectors
         )
     }

@@ -46,7 +46,7 @@ class AnalyticsPresenterTest: XCTestCase {
         
         let displayedHistory = analyticsDisplayLogic.viewModel
         for expense in displayedHistory {
-            XCTAssertEqual(expense.amount, "- $123", "Presenting fetched expenses should properly format amount")
+            XCTAssertEqual(expense.amount, "- $123.0", "Presenting fetched expenses should properly format amount")
         }
     }
 
