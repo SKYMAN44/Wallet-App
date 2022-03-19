@@ -15,7 +15,11 @@ struct Item {
 
 class PieChart: UIView {
     private let path = UIBezierPath()
-    private var items = [Item]()
+    private var items = [Item]() {
+        didSet {
+            validateItems(items: &items)
+        }
+    }
     private var arcs = [UIBezierPath]()
     private let maskLayer = CAShapeLayer()
     
@@ -75,18 +79,20 @@ class PieChart: UIView {
     }
     
     private func drawPieChart() {
+        path.removeAllPoints()
         maskLayer.removeFromSuperlayer()
         arcs.removeAll()
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         var startAngle: CGFloat = 3 * .pi / 4
-        print(bounds.height)
+        
         for item in items {
             let endAngle = (startAngle + CGFloat((2 * .pi) * item.percent))
             drawSegment(startAngle: startAngle, endAngle: endAngle, center: center, color: item.color)
             startAngle = endAngle
         }
         maskLayer.path = path.cgPath
+        self.setNeedsLayout()
     }
     
     private func drawSegment(

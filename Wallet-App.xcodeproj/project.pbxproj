@@ -121,7 +121,7 @@
 		636C7CF327CADF7B008950F7 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		636C7CF627CAE312008950F7 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		636C7CF827CAE4B6008950F7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		636C7CF927CBE061008950F7 /* purpleGradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = purpleGradient.jpg; path = "Wallet-App/purpleGradient.jpg"; sourceTree = SOURCE_ROOT; };
+		636C7CF927CBE061008950F7 /* purpleGradient.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = purpleGradient.jpg; path = "Wallet-App/Utils/Assets/purpleGradient.jpg"; sourceTree = SOURCE_ROOT; };
 		636C7CFD27CBEF84008950F7 /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		636C7CFF27CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		636C7D0127CC20E0008950F7 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
@@ -238,12 +238,7 @@
 				6369B25927E00267001F802A /* FileSystem */,
 				636C7CF527CAE2FA008950F7 /* Service */,
 				636C7CE027CAD0A7008950F7 /* Utils */,
-				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
 				636C7CAF27CA9B4F008950F7 /* LaunchScreen.storyboard */,
-				636C7CF927CBE061008950F7 /* purpleGradient.jpg */,
-				636C7D0D27CD1BCB008950F7 /* testPerson.jpeg */,
-				636C7D0927CD1BBB008950F7 /* testPerson3.jpeg */,
-				636C7D0B27CD1BC4008950F7 /* testPerson2.jpeg */,
 				636C7CB227CA9B4F008950F7 /* Info.plist */,
 				63466FE627DFC09B0080B2EF /* Wallet-App.xcdatamodeld */,
 			);
@@ -341,6 +336,7 @@
 		636C7CE027CAD0A7008950F7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C0289C4427E53147007EC953 /* Assets */,
 				636C7CE127CAD0BA008950F7 /* View+Pin.swift */,
 				636C7D0127CC20E0008950F7 /* ScreenSize.swift */,
 				636C7D1D27D3E10E008950F7 /* PieChartView.swift */,
@@ -381,16 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				636C7D2027D41568008950F7 /* ReusableViews */,
-				636C7D1C27D24384008950F7 /* Cells */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		636C7D1C27D24384008950F7 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		636C7D1F27D414E8008950F7 /* Main */ = {
@@ -426,6 +414,18 @@
 				636C7D3527DA4143008950F7 /* TestData.swift */,
 			);
 			path = "Test Data";
+			sourceTree = "<group>";
+		};
+		C0289C4427E53147007EC953 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				636C7CAD27CA9B4F008950F7 /* Assets.xcassets */,
+				636C7CF927CBE061008950F7 /* purpleGradient.jpg */,
+				636C7D0D27CD1BCB008950F7 /* testPerson.jpeg */,
+				636C7D0927CD1BBB008950F7 /* testPerson3.jpeg */,
+				636C7D0B27CD1BC4008950F7 /* testPerson2.jpeg */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

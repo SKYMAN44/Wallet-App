@@ -46,9 +46,9 @@ final class DBService {
         }
         
         return [
-            Expenses(recieverName: "Apple Store", date: date!, amount: generating()),
-            Expenses(recieverName: "Creative Cloud", date: date!, amount: generating()),
-            Expenses(recieverName: "Spar", date: date!, amount: generating())
+            Expenses(recieverName: "Apple Store", date: date!, amount: generating(), sector: .grocery),
+            Expenses(recieverName: "Creative Cloud", date: date!, amount: generating(), sector: .intelcom),
+            Expenses(recieverName: "Spar", date: date!, amount: generating(), sector: .restaurants)
         ]
     }
 }

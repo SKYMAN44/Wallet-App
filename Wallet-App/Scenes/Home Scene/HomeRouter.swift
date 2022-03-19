@@ -7,10 +7,12 @@
 
 import Foundation
 
-final class HomeRouter: HomeRouterLogic, HomeViewDataPassing {
+final class HomeRouter: HomeViewDataPassing {
     weak var viewController: HomeViewController?
     var dataStore: HomeDataStore?
-    
+}
+
+extension HomeRouter: HomeRouterLogic {
     public func routeToAnalytics() {
         guard let analyticsViewController = AnalyticsScene.build() as? AnalyticsViewController else { return }
         analyticsViewController.interactor?.history = dataStore?.history

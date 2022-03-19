@@ -41,6 +41,7 @@ final class AnalyticsViewController: UIViewController {
     
     private var dataSource: DataSource?
     private var displayedHistory = [AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory]()
+    private var displayedGraph: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics?
     var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
     var router: (AnalyticsRouterLogic & AnalyticsViewDataPassing)?
     
@@ -162,6 +163,10 @@ final class AnalyticsViewController: UIViewController {
             case SupplementaryViewKind.graph:
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViewKind.graph, withReuseIdentifier: StatGraphicsCollectionReusableView.reuseIdentifier, for: indexPath) as! StatGraphicsCollectionReusableView
                 
+                if let data = self.displayedGraph {
+                    headerView.setData(data: data)
+                }
+                
                 return headerView
             default:
                 return nil
@@ -181,6 +186,8 @@ final class AnalyticsViewController: UIViewController {
 extension AnalyticsViewController: AnalyticsDisplayLogic {
     func displayContent(viewModel: AnalyticsInfo.ShowInfo.ViewModel) {
         self.displayedHistory = viewModel.displayedHistory
+        self.displayedGraph = viewModel.displayedGraph
+        
         configureDataSource()
     }
 }

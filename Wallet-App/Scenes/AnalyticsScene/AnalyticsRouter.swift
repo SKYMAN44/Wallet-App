@@ -15,3 +15,4 @@ final class AnalyticsRouter: AnalyticsRouterLogic, AnalyticsViewDataPassing {
         
     }
 }
+

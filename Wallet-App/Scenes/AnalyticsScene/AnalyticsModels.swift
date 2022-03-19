@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum AnalyticsInfo {
     enum ShowInfo {
@@ -24,7 +25,21 @@ enum AnalyticsInfo {
                 let image: String
                 let amount: String
             }
+            
+            struct graphSegment: Hashable {
+                let sectorTitle: String
+                let amount: String
+                let color: UIColor
+                let percentage: Double
+            }
+            
+            struct GraphStatistics: Hashable {
+                let totalSum: String
+                let sectors: [graphSegment]
+            }
+            
             var displayedHistory: [DisplayedHistory]
+            var displayedGraph: GraphStatistics
         }
     }
 }

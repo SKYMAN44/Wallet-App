@@ -34,7 +34,7 @@ final class HomeWorker {
                     history = arrayOfExpensesDB.compactMap { (expense) in
                         if let name = expense.recieverName,
                            let date = expense.date {
-                            return Expenses(recieverName: name, date: date, amount: expense.amount)
+                            return Expenses(recieverName: name, date: date, amount: expense.amount, sector: .restaurants)
                         }
                         return nil
                     }
@@ -62,12 +62,4 @@ final class HomeWorker {
         }
         return []
     }
-}
-
-
-extension NSSet {
-  func toArray<T>() -> [T] {
-    let array = self.map({ $0 as! T})
-    return array
-  }
 }

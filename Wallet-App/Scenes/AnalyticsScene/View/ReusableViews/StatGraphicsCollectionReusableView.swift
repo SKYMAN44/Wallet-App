@@ -10,7 +10,7 @@ import UIKit
 class StatGraphicsCollectionReusableView: UICollectionReusableView {
     static let reuseIdentifier = "StatGraphicsCollectionReusableView"
     
-    private let tempItems = [Item(percent: 0.4, color: .cyan), Item(percent: 0.3, color: .yellow), Item(percent: 0.2, color: .green)]
+    private var tempItems = [Item(percent: 0.4, color: .cyan), Item(percent: 0.3, color: .yellow), Item(percent: 0.2, color: .green)]
     private let pieChart: PieChart
     private let stackedBar: StackedBarView
     private let spendingsLabel: UILabel = {
@@ -40,6 +40,17 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // experiment
+    public func setData(data: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics) {
+        self.tempItems = data.sectors.map {
+            return Item(percent: $0.percentage , color: $0.color)
+        }
+        self.spendingsLabel.text = data.totalSum
+        
+        self.pieChart.updateItems(items: self.tempItems)
+        self.stackedBar.updateItems(items: self.tempItems)
     }
     
     // MARK: - UI setup

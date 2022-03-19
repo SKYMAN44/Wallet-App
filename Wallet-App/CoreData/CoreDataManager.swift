@@ -52,10 +52,6 @@ final class CoreDataManager {
         }
     }
     
-    public func fetchCardDetails() {
-        
-    }
-    
     public func saveCardsInfo(cards: [Cards]) {
         guard let container = persistanceContainer else { return }
         
@@ -98,7 +94,6 @@ final class CoreDataManager {
             }
         }
     }
-    
     
     public func clearAll() {
         guard let container = persistanceContainer else { return }
