@@ -11,7 +11,7 @@ import UIKit
 final class AnalyticsPresenter: AnalyticsPresentationLogic {
     weak var viewController: AnalyticsDisplayLogic?
     
-    static let ColorMap: [Expenses.EconomicSector: UIColor] = [
+    static let ColorMap: [EconomicSector: UIColor] = [
         .restaurants: .yellow,
         .intelcom: .cyan,
         .grocery: .green,
@@ -35,7 +35,7 @@ final class AnalyticsPresenter: AnalyticsPresentationLogic {
     private func mapGraph(_ items: [Expenses]) -> AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics {
         let total = items.reduce(0) { $0 + $1.amount }
         
-        var hashTable = [Expenses.EconomicSector: [Expenses]]()
+        var hashTable = [EconomicSector: [Expenses]]()
         items.forEach {
             if(hashTable[$0.sector] == nil) {
                 hashTable[$0.sector] = [$0]

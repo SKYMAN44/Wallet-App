@@ -34,7 +34,7 @@ final class HomeWorker {
                     history = arrayOfExpensesDB.compactMap { (expense) in
                         if let name = expense.recieverName,
                            let date = expense.date {
-                            return Expenses(recieverName: name, date: date, amount: expense.amount, sector: .restaurants)
+                            return Expenses(recieverName: name, date: date, amount: expense.amount, sector: expense.getSector())
                         }
                         return nil
                     }

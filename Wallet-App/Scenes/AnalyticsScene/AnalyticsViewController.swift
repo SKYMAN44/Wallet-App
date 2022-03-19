@@ -55,7 +55,8 @@ final class AnalyticsViewController: UIViewController {
         self.view.backgroundColor = .white
         
         setupView()
-        fetchData()
+        segmentController.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        fetchData(.week)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,8 +65,8 @@ final class AnalyticsViewController: UIViewController {
         self.title = "Analytics"
     }
     
-    private func fetchData() {
-        let request = AnalyticsInfo.ShowInfo.Request()
+    private func fetchData(_ filter: AnalyticsInfo.ShowInfo.Request.DateRange) {
+        let request = AnalyticsInfo.ShowInfo.Request(dateFilter: filter)
         interactor?.showInformation(request: request)
     }
     
@@ -85,6 +86,20 @@ final class AnalyticsViewController: UIViewController {
         collectionView.pin(to: view, [.left, .right])
         collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
         collectionView.pinTop(to: segmentController.bottomAnchor)
+    }
+    
+    @objc
+    private func segmentChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            fetchData(.week)
+        case 1:
+            fetchData(.month)
+        case 2:
+            fetchData(.year)
+        default:
+            fatalError("Wtf")
+        }
     }
     
     // MARK: - Layout

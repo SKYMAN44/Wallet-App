@@ -11,7 +11,13 @@ import UIKit
 enum AnalyticsInfo {
     enum ShowInfo {
         struct Request {
-            // add historyForWhichCard
+            enum DateRange {
+                case week
+                case month
+                case year
+            }
+            
+            var dateFilter: DateRange
         }
         
         struct Response {

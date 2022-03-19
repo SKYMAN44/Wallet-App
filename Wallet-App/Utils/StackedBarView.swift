@@ -84,6 +84,6 @@ class StackedBarView: UIView {
     // MARK: - API
     public func updateItems(items: [Item]) {
         self.items = items
-        drawStackedBar()
+        self.setNeedsDisplay()
     }
 }

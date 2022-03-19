@@ -44,13 +44,6 @@ class PieChart: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.layer.addSublayer(maskLayer)
-        maskLayer.fillColor = UIColor.clear.cgColor
-    }
-    
     private func validateItems(items: inout [Item]) {
         let sum = items.reduce(0) { $0 + $1.percent }
         if sum < 1 {
@@ -61,7 +54,7 @@ class PieChart: UIView {
         }
     }
     
-    //MARK: - Interactions
+    // MARK: - Interactions
     @objc
     func panHappend(_ tap: UITapGestureRecognizer) {
         let point = tap.location(in: self)
@@ -72,6 +65,7 @@ class PieChart: UIView {
         }
     }
     
+    // MARK: - Draw
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -79,8 +73,8 @@ class PieChart: UIView {
     }
     
     private func drawPieChart() {
-        path.removeAllPoints()
         maskLayer.removeFromSuperlayer()
+        path.removeAllPoints()
         arcs.removeAll()
         
         let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
@@ -92,7 +86,8 @@ class PieChart: UIView {
             startAngle = endAngle
         }
         maskLayer.path = path.cgPath
-        self.setNeedsLayout()
+        self.layer.addSublayer(maskLayer)
+        maskLayer.fillColor = UIColor.clear.cgColor
     }
     
     private func drawSegment(
@@ -116,9 +111,9 @@ class PieChart: UIView {
         arcs.append(arc)
     }
     
-    
+    // MARK: - API
     public func updateItems(items: [Item]) {
         self.items = items
-        drawPieChart()
+        self.setNeedsDisplay()
     }
 }

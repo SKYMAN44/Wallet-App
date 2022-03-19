@@ -8,14 +8,6 @@
 import Foundation
 
 struct Expenses {
-    enum EconomicSector: Codable {
-        case tech
-        case grocery
-        case transport
-        case restaurants
-        case undefined
-        case intelcom
-    }
     let recieverName: String
     let date: Date
     let amount: Double

@@ -22,4 +22,10 @@ final class AnalyticsWorker {
         }
         return []
     }
+    
+    public func filterHistory(history: [Expenses], filterDate: Date) -> [Expenses] {
+        let newHistory = history.filter({ $0.date >= filterDate })
+        
+        return newHistory
+    }
 }

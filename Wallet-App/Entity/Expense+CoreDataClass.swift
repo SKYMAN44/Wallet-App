@@ -2,7 +2,7 @@
 //  Expense+CoreDataClass.swift
 //  Wallet-App
 //
-//  Created by Дмитрий Соколов on 18.03.2022.
+//  Created by Дмитрий Соколов on 19.03.2022.
 //
 //
 
