@@ -58,9 +58,10 @@ class PieChart: UIView {
     @objc
     func panHappend(_ tap: UITapGestureRecognizer) {
         let point = tap.location(in: self)
-        for (i, arc) in arcs.enumerated() {
-            if arc.contains(point) {
-                print(items[i].color)
+        let pickedColor = self.colorOfPoint(point: point)
+        for item in self.items {
+            if(item.color == pickedColor) {
+                print(item.percent)
             }
         }
     }
@@ -115,5 +116,27 @@ class PieChart: UIView {
     public func updateItems(items: [Item]) {
         self.items = items
         self.setNeedsDisplay()
+    }
+}
+
+extension UIView
+{
+    func colorOfPoint(point: CGPoint) -> UIColor
+    {
+        let pixel = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: 4)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+                
+        context!.translateBy(x: -point.x, y: -point.y)
+        layer.render(in: context!)
+        let color: UIColor = UIColor(
+            red: CGFloat(pixel[0]) / 255.0,
+            green: CGFloat(pixel[1]) / 255.0,
+            blue: CGFloat(pixel[2]) / 255.0,
+            alpha: CGFloat(pixel[3]) / 255.0
+        )
+                
+        return color
     }
 }

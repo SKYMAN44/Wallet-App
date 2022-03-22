@@ -45,19 +45,6 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setData(data: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics) {
-        self.itemsToShow = data.sectors.map {
-            return Item(percent: $0.percentage, color: $0.color)
-        }
-        newBalance = data.totalSum
-        animationStart = Date()
-        setLabelText()
-        
-        self.pieChart.updateItems(items: self.itemsToShow)
-        self.stackedBar.updateItems(items: self.itemsToShow)
-        self.setNeedsLayout()
-    }
-    
     private func setLabelText() {
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
         displayLink.add(to: .main, forMode: .default)
@@ -87,9 +74,9 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         
         spendingsLabel.pin(to: self, [.bottom: 10, .right: 0, .left: 0])
         
-        barTopConstraintToSuperView = stackedBar.pinTop(to: self.topAnchor, 230)
+        barTopConstraintToSuperView = stackedBar.pinTop(to: self.topAnchor, 20)
         
-        stackedBar.pin(to: self, [.left: 0, .right: 0, .bottom: 50])
+        stackedBar.pin(to: self, [.left: 0, .right: 0])
         stackedBar.setHeight(to: 20)
         stackedBar.alpha = 0
         
@@ -101,18 +88,19 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     
     
     // MARK: - API
-    public func changeStyle(_ toCompact: Bool, updateCollectionView: () -> ()) {
+    public func changeStyle(_ toCompact: Bool, updateCollectionView: () -> ())
+    {
         guard !isAnimating else { return }
         
         if toCompact && !isCompact {
             isAnimating = true
             self.heightConstraint?.constant = 90
-            UIView.animate(withDuration: 0.25,delay: 0.05, animations: {
+            UIView.animate(withDuration: 0.25) {
                 self.pieChart.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                self.heightConstraint?.constant = 90
                 self.pieChart.alpha = 0
+            }
+            UIView.animate(withDuration: 0.25, delay: 0.05, animations: {
                 self.stackedBar.alpha = 1
-                self.barTopConstraintToSuperView?.constant = 20
                 self.spendingsLabel.textAlignment = .right
             }) { _ in
                 self.isAnimating = false
@@ -122,12 +110,12 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         } else if !toCompact && isCompact {
             isAnimating = true
             self.heightConstraint?.constant = 300
-            UIView.animate(withDuration: 0.25, delay: 0.05, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.stackedBar.alpha = 0
+            })
+            UIView.animate(withDuration: 0.25, delay: 0.2, animations: {
                 self.pieChart.transform = .identity
                 self.pieChart.alpha = 1
-                self.stackedBar.alpha = 0
-                self.barTopConstraintToSuperView?.constant = 260
-                
                 self.spendingsLabel.textAlignment = .center
             }) { _ in
                 self.isAnimating = false
@@ -135,6 +123,19 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
             }
             updateCollectionView()
         }
+    }
+    
+    public func setData(data: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics) {
+        self.itemsToShow = data.sectors.map {
+            return Item(percent: $0.percentage, color: $0.color)
+        }
+        newBalance = data.totalSum
+        animationStart = Date()
+        setLabelText()
+        
+        self.pieChart.updateItems(items: self.itemsToShow)
+        self.stackedBar.updateItems(items: self.itemsToShow)
+        self.setNeedsLayout()
     }
     
 }

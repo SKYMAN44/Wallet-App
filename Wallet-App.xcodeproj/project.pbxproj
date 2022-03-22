@@ -65,6 +65,7 @@
 		636C7D3E27DC05FB008950F7 /* AnalyticsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636C7D3D27DC05FB008950F7 /* AnalyticsScene.swift */; };
 		C0289C4727E61A4D007EC953 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0289C4627E61A48007EC953 /* Expense+CoreDataProperties.swift */; };
 		C0289C4827E61A4D007EC953 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0289C4527E61A48007EC953 /* Expense+CoreDataClass.swift */; };
+		C0289D1127EA43AB007EC953 /* DateFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0289D1027EA43AB007EC953 /* DateFilters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		636C7D3D27DC05FB008950F7 /* AnalyticsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsScene.swift; sourceTree = "<group>"; };
 		C0289C4527E61A48007EC953 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C0289C4627E61A48007EC953 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C0289D1027EA43AB007EC953 /* DateFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFilters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 				636C7D1D27D3E10E008950F7 /* PieChartView.swift */,
 				636C7D2527D57191008950F7 /* StackedBarView.swift */,
 				6369B25B27E0070C001F802A /* Date+Format.swift */,
+				C0289D1027EA43AB007EC953 /* DateFilters.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				636C7D3027D97551008950F7 /* SegmentCollectionReusableView.swift in Sources */,
 				6369B26827E3D9AE001F802A /* Contact+CoreDataProperties.swift in Sources */,
 				636C7D0027CBF7E2008950F7 /* ContactHeaderCollectionReusableView.swift in Sources */,
+				C0289D1127EA43AB007EC953 /* DateFilters.swift in Sources */,
 				636C7CF027CADEB0008950F7 /* HomeWorker.swift in Sources */,
 				636C7CA727CA9B4B008950F7 /* SceneDelegate.swift in Sources */,
 				6369B26727E3D9AE001F802A /* Contact+CoreDataClass.swift in Sources */,

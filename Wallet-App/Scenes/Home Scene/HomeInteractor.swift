@@ -30,7 +30,7 @@ final class HomeInteractor: HomeDataStore {
 }
 
 extension HomeInteractor: HomeBusinessLogic {
-    func showInformation(request: HomeInfo.ShowInfo.Request) {
+    public func showInformation(request: HomeInfo.ShowInfo.Request) {
         self.worker.getCards { (cards) in
             self.cards = cards
             self.history = cards[0].history ?? []
@@ -39,7 +39,7 @@ extension HomeInteractor: HomeBusinessLogic {
         self.contacts = contacts
     }
     
-    func showCardHistory(request: HomeInfo.ShowInfo.Request) {
+    public func showCardHistory(request: HomeInfo.ShowInfo.Request) {
         if let index = request.cardIndex {
             self.history = self.cards[index].history ?? []
         }
@@ -49,10 +49,17 @@ extension HomeInteractor: HomeBusinessLogic {
         let response = HomeInfo.ShowInfo.Response(
             cards: self.cards,
             contacts: self.contacts,
-            history: self.history
+            history: sortedHistory(self.history)
         )
         DispatchQueue.main.async { [weak self] in
             self?.presenter?.presentData(response: response)
         }
+    }
+    
+    private func sortedHistory(_ history: [Expenses]) -> [Expenses] {
+        var sortedHistory = history.filter { $0.date.compare(DateFilters.startOfToday) == .orderedDescending }
+        sortedHistory.sort(by: { $0.date > $1.date })
+        
+        return sortedHistory
     }
 }
