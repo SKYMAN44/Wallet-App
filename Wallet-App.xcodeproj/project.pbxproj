@@ -150,6 +150,7 @@
 		C0289C4527E61A48007EC953 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C0289C4627E61A48007EC953 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C0289D1027EA43AB007EC953 /* DateFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFilters.swift; sourceTree = "<group>"; };
+		C0289D1227EBBB0A007EC953 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +212,7 @@
 		636C7C9827CA9B4B008950F7 = {
 			isa = PBXGroup;
 			children = (
+				C0289D1227EBBB0A007EC953 /* .gitignore */,
 				636C7CF827CAE4B6008950F7 /* README.md */,
 				636C7CA327CA9B4B008950F7 /* Wallet-App */,
 				636C7CBA27CA9B4F008950F7 /* Wallet-AppTests */,

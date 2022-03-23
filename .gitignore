@@ -1,0 +1,14 @@
+#ignore readme
+README.md
+
+## OS X
+
+*.DS_Store
+.DS_Store
+
+## Build generated
+
+build/
+DerivedData/
+Build
+Index
