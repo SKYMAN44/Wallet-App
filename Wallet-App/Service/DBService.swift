@@ -68,7 +68,8 @@ final class DBService {
             Expenses(recieverName: "MTS", date: date!, amount: generating(), sector: .intelcom),
             Expenses(recieverName: "Metro", date: date!, amount: generating(), sector: .transport),
             Expenses(recieverName: "Yandex.Taxi", date: thisMonthDate!, amount: generating(), sector: .transport),
-            Expenses(recieverName: "Uber", date: thisMonthDate!, amount: generating(), sector: .transport)
+            Expenses(recieverName: "Uber", date: thisMonthDate!, amount: generating(), sector: .transport),
+            Expenses(recieverName: "MGTS", date: date!, amount: generating(), sector: .intelcom)
         ]
     }
 }
