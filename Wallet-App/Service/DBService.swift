@@ -43,6 +43,13 @@ final class DBService {
         let monthStringDate = "2022-3-3"
         let thisMonthDate = dateFormatter.date(from: monthStringDate)
         
+        func generateAmount() -> NSDecimalNumber {
+            let integer = Int.random(in: 800...50000)
+            let decimal = Int.random(in: 0...99)
+            let val = integer + decimal
+            return  NSDecimalNumber(mantissa: UInt64(val), exponent: -2, isNegative: false)
+        }
+        
         func generating() -> Double {
             var num = Double.random(in: 8...500)
             // round up to 2 decimal

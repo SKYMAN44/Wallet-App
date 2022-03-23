@@ -42,6 +42,7 @@ final class AnalyticsViewController: UIViewController {
     private var dataSource: DataSource?
     private var displayedHistory = [AnalyticsInfo.ShowInfo.ViewModel.DisplayedHistory]()
     private var displayedGraph: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics?
+    private var graphView: GraphViewTouches?
     var interactor: (AnalyticsBusinessLogic & AnalyticsDataStore)?
     var router: (AnalyticsRouterLogic & AnalyticsViewDataPassing)?
     
@@ -53,6 +54,7 @@ final class AnalyticsViewController: UIViewController {
 //        navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.backItem?.title = ""
         self.view.backgroundColor = .white
+        collectionView.delegate = self
         
         setupView()
         segmentController.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
@@ -85,10 +87,22 @@ final class AnalyticsViewController: UIViewController {
         
         collectionView.pin(to: view, [.left, .right, .bottom])
         collectionView.pinTop(to: segmentController.bottomAnchor)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(collectionViewTouch(_:)))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.numberOfTouchesRequired = 1
+        collectionView.addGestureRecognizer(recognizer)
+    }
+    
+    @objc
+    private func collectionViewTouch(_ tap: UITapGestureRecognizer) {
+        let point = tap.location(in: self.collectionView)
+        graphView?.touchBegin(point: point, parentView: self.collectionView)
     }
     
     @objc
     private func segmentChanged(_ sender: UISegmentedControl) {
+        self.graphView?.touchBegin(point: CGPoint(x: 0, y: 0), parentView: self.collectionView)
         switch sender.selectedSegmentIndex {
         case 0:
             fetchData(.week)
@@ -176,6 +190,7 @@ final class AnalyticsViewController: UIViewController {
             switch kind {
             case SupplementaryViewKind.graph:
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViewKind.graph, withReuseIdentifier: StatGraphicsCollectionReusableView.reuseIdentifier, for: indexPath) as! StatGraphicsCollectionReusableView
+                self.graphView = headerView
                 
                 if let data = self.displayedGraph {
                     headerView.setData(data: data)
@@ -203,5 +218,11 @@ extension AnalyticsViewController: AnalyticsDisplayLogic {
         self.displayedGraph = viewModel.displayedGraph
         
         configureDataSource()
+    }
+}
+
+extension AnalyticsViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        graphView?.touchBegin(point: CGPoint(x: 0, y: 0), parentView: self.collectionView)
     }
 }

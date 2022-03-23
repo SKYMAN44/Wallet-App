@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol GraphViewTouches: AnyObject {
+    func touchBegin(point: CGPoint, parentView: UIView)
+}
+
 class StatGraphicsCollectionReusableView: UICollectionReusableView {
     static let reuseIdentifier = "StatGraphicsCollectionReusableView"
     
     private var itemsToShow = [Item]()
-    static private var oldBalance: Double = 0
+    private var oldBalance: Double = 0
     private var newBalance: Double = 0
     private let pieChart: PieChart
     private let stackedBar: StackedBarView
@@ -57,11 +61,11 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         
         if elapsedTime > animationDuration {
             self.spendingsLabel.text = "$ \(newBalance)"
-            StatGraphicsCollectionReusableView.oldBalance = newBalance
+            self.oldBalance = newBalance
             
         } else {
             let percentage = elapsedTime / animationDuration
-            let value = StatGraphicsCollectionReusableView.oldBalance + percentage * (newBalance - StatGraphicsCollectionReusableView.oldBalance)
+            let value = self.oldBalance + percentage * (newBalance - self.oldBalance)
             self.spendingsLabel.text = "$ \(value.rounded())"
         }
     }
@@ -127,7 +131,7 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     
     public func setData(data: AnalyticsInfo.ShowInfo.ViewModel.GraphStatistics) {
         self.itemsToShow = data.sectors.map {
-            return Item(percent: $0.percentage, color: $0.color)
+            return Item(percent: $0.percentage, color: $0.color, message: "\($0.sectorTitle)")
         }
         newBalance = data.totalSum
         animationStart = Date()
@@ -138,4 +142,14 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         self.setNeedsLayout()
     }
     
+}
+
+// MARK: - GraphViewTouches
+extension StatGraphicsCollectionReusableView: GraphViewTouches {
+    func touchBegin(point: CGPoint, parentView: UIView) {
+        let newPoint = parentView.convert(point, to: self)
+        if(!self.isCompact) {
+            pieChart.touched(point: newPoint, parentView: self)
+        }
+    }
 }

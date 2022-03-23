@@ -36,7 +36,7 @@ class StackedBarView: UIView {
     private func validateItems(items: inout [Item]) {
         let sum = items.reduce(0) { $0 + $1.percent }
         if sum < 1 {
-            items.append(Item(percent: 1 - sum, color: .systemGray6))
+            items.append(Item(percent: 1 - sum, color: .systemGray6, message: "Undefined"))
         } else if sum > 1 {
             items.removeLast()
             validateItems(items: &items)
