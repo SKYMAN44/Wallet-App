@@ -13,7 +13,7 @@ Dmitrii Sokolov
 
 ## Description
 Project purpose is to demonstrate usage of CleanSwift Architecture 
-Also usage of IOS FileSystem and CoreData (currently in proccess of adding it)
+Also usage of IOS FileSystem and CoreData
 
 ## Further Improvments
 - Switch from Float to NSDecimalNumber for storing currency 
