@@ -15,6 +15,9 @@ Dmitrii Sokolov
 Project purpose is to demonstrate usage of CleanSwift Architecture 
 Also usage of IOS FileSystem and CoreData
 
+## Preview
+https://user-images.githubusercontent.com/55272093/159800360-8559eebe-cc61-4def-93a0-6c713b4be9e0.mov
+
 ## Further Improvments
 - Switch from Float to NSDecimalNumber for storing currency 
 - Add graph/stackedBar construction animation
