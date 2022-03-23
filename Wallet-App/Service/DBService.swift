@@ -47,11 +47,11 @@ final class DBService {
             let integer = Int.random(in: 800...50000)
             let decimal = Int.random(in: 0...99)
             let val = integer + decimal
-            return  NSDecimalNumber(mantissa: UInt64(val), exponent: -2, isNegative: false)
+            return NSDecimalNumber(mantissa: UInt64(val), exponent: -2, isNegative: false)
         }
         
-        func generating() -> Double {
-            var num = Double.random(in: 8...500)
+        func generating() -> Float {
+            var num = Float.random(in: 8...500)
             // round up to 2 decimal
             num = round(100 * num) / 100
             
@@ -59,9 +59,14 @@ final class DBService {
         }
         
         return [
+            Expenses(recieverName: "Mvideo", date: Date(), amount: generating(), sector: .tech),
+            Expenses(recieverName: "Azbuka Vkusa", date: Date(), amount: generating(), sector:  .grocery),
             Expenses(recieverName: "Apple Store", date: Date(), amount: generating(), sector: .tech),
             Expenses(recieverName: "Creative Cloud", date: date!, amount: generating(), sector: .intelcom),
             Expenses(recieverName: "Spar", date: date!, amount: generating(), sector: .grocery),
+            Expenses(recieverName: "McDonalds", date: date!, amount: generating(), sector: .restaurants),
+            Expenses(recieverName: "MTS", date: date!, amount: generating(), sector: .intelcom),
+            Expenses(recieverName: "Metro", date: date!, amount: generating(), sector: .transport),
             Expenses(recieverName: "Yandex.Taxi", date: thisMonthDate!, amount: generating(), sector: .transport)
         ]
     }

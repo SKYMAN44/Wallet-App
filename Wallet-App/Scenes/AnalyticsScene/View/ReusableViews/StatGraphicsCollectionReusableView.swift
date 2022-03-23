@@ -15,8 +15,8 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
     static let reuseIdentifier = "StatGraphicsCollectionReusableView"
     
     private var itemsToShow = [Item]()
-    private var oldBalance: Double = 0
-    private var newBalance: Double = 0
+    private var oldBalance: Float = 0
+    private var newBalance: Float = 0
     private let pieChart: PieChart
     private let stackedBar: StackedBarView
     private let spendingsLabel: UILabel = {
@@ -65,7 +65,7 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
             
         } else {
             let percentage = elapsedTime / animationDuration
-            let value = self.oldBalance + percentage * (newBalance - self.oldBalance)
+            let value = self.oldBalance + Float(percentage) * (newBalance - self.oldBalance)
             self.spendingsLabel.text = "$ \(value.rounded())"
         }
     }
@@ -133,13 +133,22 @@ class StatGraphicsCollectionReusableView: UICollectionReusableView {
         self.itemsToShow = data.sectors.map {
             return Item(percent: $0.percentage, color: $0.color, message: "\($0.sectorTitle)")
         }
-        newBalance = data.totalSum
+        newBalance = roundingHelper(data.totalSum)
         animationStart = Date()
         setLabelText()
         
         self.pieChart.updateItems(items: self.itemsToShow)
         self.stackedBar.updateItems(items: self.itemsToShow)
         self.setNeedsLayout()
+    }
+    
+    private func roundingHelper(_ number: Float) -> Float {
+        let integer = Int(number)
+        let numberOfInt = String(integer).count
+        let string = String(number)
+        let newValue = Float(string.prefix(numberOfInt + 3))
+        
+        return newValue ?? 0
     }
     
 }

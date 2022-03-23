@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Item {
-    let percent: CGFloat
+    let percent: Float
     let color: UIColor
     let message: String
 }
@@ -46,9 +46,6 @@ class PieChart: UIView {
         var newItems = items
         validateItems(items: &newItems)
         self.items = newItems
-        
-        let panG = UITapGestureRecognizer(target: self, action: #selector(panHappend(_:)))
-//        self.addGestureRecognizer(panG)
         self.backgroundColor = .clear
     }
     

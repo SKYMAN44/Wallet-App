@@ -36,11 +36,11 @@ enum AnalyticsInfo {
                 let sectorTitle: String
                 let amount: String
                 let color: UIColor
-                let percentage: Double
+                let percentage: Float
             }
             
             struct GraphStatistics: Hashable {
-                let totalSum: Double
+                let totalSum: Float
                 let sectors: [graphSegment]
             }
             

@@ -26,6 +26,7 @@ final class HomeWorker {
     }
     
     public func getCards(completion: @escaping ([Cards]) -> Void) {
+        // get cards and their history from CoreData
         var resultCards = [Cards]()
         CoreDataManager.shared.fetchCardsInfo { (cards) in
             for card in cards {
@@ -34,7 +35,7 @@ final class HomeWorker {
                     history = arrayOfExpensesDB.compactMap { (expense) in
                         if let name = expense.recieverName,
                            let date = expense.date {
-                            return Expenses(recieverName: name, date: date, amount: expense.amount, sector: expense.getSector())
+                            return Expenses(recieverName: name, date: date, amount: Float(expense.amount), sector: expense.getSector())
                         }
                         return nil
                     }
@@ -46,19 +47,11 @@ final class HomeWorker {
     }
     
     public func getContacts() -> [Contacts] {
+        // get contacts from FileSystem
         var contacts: [Contacts]?
         contacts = storageService.loadData(path: Const.contacts)
         if let contacts = contacts {
             return contacts
-        }
-        return []
-    }
-    
-    public func getHistory() -> [Expenses] {
-        var expenses: [Expenses]?
-        expenses = storageService.loadData(path: Const.expenses)
-        if let expenses = expenses {
-            return expenses
         }
         return []
     }

@@ -26,7 +26,7 @@ class HistoryCollectionReusableView: UICollectionReusableView {
         button.setTitle("See all", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        button.addTarget(self, action: #selector(seeAllPressed), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(seeAllPressed), for: .touchUpInside)
         
         return button
     }()

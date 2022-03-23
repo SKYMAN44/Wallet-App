@@ -15,13 +15,18 @@ Dmitrii Sokolov
 Project purpose is to demonstrate usage of CleanSwift Architecture 
 Also usage of IOS FileSystem and CoreData (currently in proccess of adding it)
 
+## Further Improvments
+- Switch from Float to NSDecimalNumber for storing currency 
+- Add graph/stackedBar construction animation
+
 ## Project Structure
 
     .
     ├── Main                  # App & Scene Delegate, base controller
     ├── Scenes                # Scenes: HomeScene, Analytcis Scene
-    ├── Entities              # Data models
-    ├── Service               # FileSystem Service
+    ├── Entity                # Data models
+    ├── CoreData              # CoreData service & manager
+    ├── Service               # Fake data generation
     └── Utils                 # Extensions + custom objects
 
-### design: https://dribbble.com/shots/17592495-Wallet-App-UI
+### original design: https://dribbble.com/shots/17592495-Wallet-App-UI

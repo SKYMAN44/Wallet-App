@@ -57,7 +57,7 @@ class StackedBarView: UIView {
         var startPoint = CGPoint(x: 0, y: 0)
         
         for item in items {
-            let endPoint = CGPoint(x: startPoint.x + item.percent * self.frame.width, y: 0)
+            let endPoint = CGPoint(x: startPoint.x + CGFloat(item.percent) * self.frame.width, y: 0)
             let width = endPoint.x - startPoint.x
             drawSegment(startPoint: startPoint, width: width, color: item.color)
             startPoint = endPoint

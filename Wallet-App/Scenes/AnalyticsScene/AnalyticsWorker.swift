@@ -14,6 +14,7 @@ final class AnalyticsWorker {
         self.storageService = service
     }
     
+    // legacy
     public func getHistory() -> [Expenses] {
         var expenses: [Expenses]?
         expenses = storageService.loadData(path: "Expenses")

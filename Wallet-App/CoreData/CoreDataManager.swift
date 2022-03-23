@@ -88,7 +88,7 @@ final class CoreDataManager {
                 for expense in cardHistory {
                     let expenseDB = Expense(context: context)
                     expenseDB.date = expense.date
-                    expenseDB.amount = expense.amount
+                    expenseDB.amount = Double(expense.amount)
                     expenseDB.recieverName = expense.recieverName
                     expenseDB.setSector(expense.sector)
                     cardCD.addToExpenses(expenseDB)
