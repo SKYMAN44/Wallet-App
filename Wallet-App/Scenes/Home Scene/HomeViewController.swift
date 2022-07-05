@@ -121,6 +121,7 @@ final class HomeViewController: UIViewController {
         showButton(false)
     }
     
+    // MARK: - Fetch
     private func fetchData() {
         let request = HomeInfo.ShowInfo.Request(cardIndex: nil)
         interactor?.showInformation(request: request)
