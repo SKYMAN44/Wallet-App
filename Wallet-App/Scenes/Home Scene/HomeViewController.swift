@@ -136,6 +136,7 @@ final class HomeViewController: UIViewController {
         collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
     }
     
+    // MARK: - Navbar Setup
     private func setupNavBar() {
         self.navigationItem.title = "Cards"
         navigationController?.navigationBar.prefersLargeTitles = true
